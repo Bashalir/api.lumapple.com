@@ -1,11 +1,9 @@
 const express = require('express');
 
 const mainRouter = express.Router();
+const adminRouter = require('./admin_router');
 
-mainRouter.get('/admin', (request, response) => {
-  response.status(200);
-  response.send('Hello my admin!');
-});
+mainRouter.use('/admin', adminRouter);
 
 mainRouter.use('*', (request, response) => {
   response.status(404);

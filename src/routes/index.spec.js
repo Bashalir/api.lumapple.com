@@ -18,7 +18,7 @@ describe('Routes :: index.js', () => {
         .get('/api/admin')
         .end(function(err, res) {
           expect(res.statusCode).to.equal(200);
-          expect(res.text).to.equal('Hello my admin!');
+          expect(res.text).to.equal('admin');
           done();
         });
     });

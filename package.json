@@ -14,7 +14,8 @@
     "test": "npm run test:unit",
     "test:unit": "nyc mocha ./src/**/*.spec.js",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "migrate": "sequelize db:migrate"
   },
   "husky": {
     "hooks": {
@@ -36,6 +37,7 @@
     "nodemon": "^2.0.2",
     "nyc": "^15.0.0",
     "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1",
     "sinon": "^9.0.0",
     "supertest": "^4.0.2"
   },
