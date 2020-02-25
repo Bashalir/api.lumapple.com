@@ -8,6 +8,10 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
+      description: {
+        allowNull: false,
+        type: Sequelize.STRING(100),
+      },
       introduction_date: {
         allowNull: true,
         type: Sequelize.DATE,

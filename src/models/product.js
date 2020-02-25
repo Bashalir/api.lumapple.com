@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true,
         },
       },
+      description: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 100],
+        },
+      },
       introductionDate: {
         allowNull: true,
         field: 'introduction_date',
@@ -23,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
       model: {
         type: DataTypes.STRING,
         validate: {
-          notNull: true,
           len: [1, 10],
         },
       },
@@ -31,36 +36,31 @@ module.exports = (sequelize, DataTypes) => {
         field: 'id_model',
         type: DataTypes.STRING,
         validate: {
-          notNull: true,
-          len: [1, 10],
+          len: [1, 50],
         },
       },
       ram: {
         type: DataTypes.INTEGER,
         validate: {
-          notNull: true,
           min: 1,
-          max: 4,
+          max: 100,
         },
       },
       storage: {
         type: DataTypes.STRING,
         validate: {
-          notNull: true,
           len: [1, 50],
         },
       },
       processor: {
         type: DataTypes.STRING,
         validate: {
-          notNull: true,
           len: [1, 100],
         },
       },
       screen: {
         type: DataTypes.STRING,
         validate: {
-          notNull: true,
           len: [1, 100],
         },
       },
@@ -68,7 +68,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'video_card',
         type: DataTypes.STRING,
         validate: {
-          notNull: true,
           len: [1, 100],
         },
       },
@@ -79,7 +78,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.NOW,
         validate: {
           isDate: true,
-          notNull: true,
         },
       },
       updatedAt: {
@@ -89,7 +87,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.NOW,
         validate: {
           isDate: true,
-          notNull: true,
         },
       },
     },

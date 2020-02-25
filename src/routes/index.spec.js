@@ -6,14 +6,11 @@ const uuid = require('uuid/v4');
 // eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
 const app = require('../server');
-
-// const promoController = require('./promos.controller');
-// const db = require('../models');
-// const Apprenant = db.apprenant;
+const { Product } = require('../models');
 
 describe('Routes :: index.js', () => {
-  describe('get test', () => {
-    it('should return Hello World', (done) => {
+  describe('admin:: admin_router.js', () => {
+    it('should return admin', (done) => {
       request(app)
         .get('/api/admin')
         .end(function(err, res) {
@@ -21,6 +18,38 @@ describe('Routes :: index.js', () => {
           expect(res.text).to.equal('admin');
           done();
         });
+    });
+  });
+
+  describe('POST /roles', () => {
+    beforeEach((done) => {
+      Product.truncate();
+      done();
+    });
+
+    afterEach((done) => {
+      Product.truncate();
+      done();
+    });
+
+    const data = {
+      introduction_date: '10/27/2016',
+      description: 'Apple MacBook Pro 13-Inch "Core i5" 2.0',
+      model: 'MLL42LL/A',
+      idModel: 'A1708 (EMC 2978)',
+      ram: 8,
+      storage: '256 GB SSD',
+      processor: 'Core i5 (I5-6360U)',
+      screen: '13.3" Widescreen',
+      videoCard: 'Iris Graphics 540',
+    };
+
+    it('should return a new product object', (done) => {
+      request(app)
+        .post('/api/admin/add_product')
+        .send(data)
+        .set('Accept', 'application/json')
+        .expect(201, done);
     });
   });
 });

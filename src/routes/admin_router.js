@@ -1,16 +1,18 @@
 const express = require('express');
 
+const { addProduct } = require('../controllers/products_controller');
+
 const adminRouter = express.Router();
 
 adminRouter.get('/', async (request, response) => {
   response.status(200).send('admin');
 });
-adminRouter.post("/add_product", async (request, response) => {
+adminRouter.post('/add_product', async (request, response) => {
   const data = request.body;
-  const newProduct = await newProduct(data);
+  const newProduct = await addProduct(data);
 
-  response.status(CREATED);
-  response.json(nouvellePromotion);
+  response.status(201);
+  response.json(newProduct);
 });
 
 module.exports = adminRouter;
