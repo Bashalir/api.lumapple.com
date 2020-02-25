@@ -22,11 +22,6 @@ describe('Routes :: index.js', () => {
   });
 
   describe('POST /roles', () => {
-    beforeEach((done) => {
-      Product.truncate();
-      done();
-    });
-
     afterEach((done) => {
       Product.truncate();
       done();
