@@ -7,7 +7,7 @@ const adminRouter = express.Router();
 adminRouter.get('/', async (request, response) => {
   response.status(200).send('admin');
 });
-adminRouter.post('/add_product', async (request, response) => {
+adminRouter.post('/products', async (request, response) => {
   const data = request.body;
   const newProduct = await addProduct(data);
 

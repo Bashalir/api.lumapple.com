@@ -28,7 +28,7 @@ describe('Routes :: index.js', () => {
     });
 
     const data = {
-      introduction_date: '10/27/2016',
+      introductionDate: '10/27/2016',
       description: 'Apple MacBook Pro 13-Inch "Core i5" 2.0',
       model: 'MLL42LL/A',
       idModel: 'A1708 (EMC 2978)',
@@ -41,7 +41,7 @@ describe('Routes :: index.js', () => {
 
     it('should return a new product object', (done) => {
       request(app)
-        .post('/api/admin/add_product')
+        .post('/api/admin/products')
         .send(data)
         .set('Accept', 'application/json')
         .expect(201, done);
