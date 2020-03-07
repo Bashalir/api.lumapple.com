@@ -10,3 +10,7 @@ coverage
 
 # dotenv environment variables file
 .env
+
+# Key
+.localhost-key.pem
+.localhost.pem
