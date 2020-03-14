@@ -103,35 +103,35 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Iphone.associate = (models) => {
-    Iphone.belongsTo(models.Categories, {
+    Iphone.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',
         allowNull: false,
       },
     });
-    Iphone.belongsTo(models.Colors, {
+    Iphone.belongsTo(models.Color, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'color_id',
         allowNull: false,
       },
     });
-    Iphone.belongsTo(models.Processors, {
+    Iphone.belongsTo(models.Processor, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'processor_id',
         allowNull: false,
       },
     });
-    Iphone.belongsTo(models.Storages, {
+    Iphone.belongsTo(models.Storage, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'storage_id',
         allowNull: false,
       },
     });
-    Iphone.belongsTo(models.Families, {
+    Iphone.belongsTo(models.Family, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'family_id',

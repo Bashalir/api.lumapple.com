@@ -25,11 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       cores: {
-        type: DataTypes.Integer,
-        validate: {
-          min: 1,
-          max: 12,
-        },
+        type: DataTypes.INTEGER,
       },
       categoryId: {
         field: 'category_id',
@@ -61,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Processor.associate = (models) => {
-    Processor.belongsTo(models.Categories, {
+    Processor.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',

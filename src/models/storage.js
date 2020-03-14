@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       capacity: {
-        type: DataTypes.Integer,
+        type: DataTypes.INTEGER,
         validate: {
           min: 1,
           max: 10000,
@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Storage.associate = (models) => {
-    Storage.belongsTo(models.Categories, {
+    Storage.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',

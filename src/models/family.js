@@ -48,7 +48,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Family.associate = (models) => {
-    Family.belongsTo(models.Categories, {
+    Family.hasMany(models.Color, { foreignKey: 'family_id' });
+    Family.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',

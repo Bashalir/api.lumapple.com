@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Colors = sequelize.define(
-    'Colors',
+  const Color = sequelize.define(
+    'Color',
     {
       id: {
         allowNull: false,
@@ -12,14 +12,28 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true,
         },
       },
-      type: {
+      typeEn: {
+        field: 'type_en',
         type: DataTypes.STRING,
         validate: {
           len: [1, 30],
         },
       },
-      categoryId: {
-        field: 'category_id',
+      typeFr: {
+        field: 'type_fr',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30],
+        },
+      },
+      rgb: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [6, 6],
+        },
+      },
+      familyID: {
+        field: 'family_id',
         type: DataTypes.UUID,
         allowNull: false,
       },
@@ -47,15 +61,15 @@ module.exports = (sequelize, DataTypes) => {
     },
   );
 
-  Colors.associate = (models) => {
-    Colors.belongsTo(models.Categories, {
+  Color.associate = (models) => {
+    Color.belongsTo(models.Family, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'category_id',
+        name: 'family_id',
         allowNull: false,
       },
     });
   };
 
-  return Colors;
+  return Color;
 };
