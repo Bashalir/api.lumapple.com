@@ -8,26 +8,21 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      type_en: {
+      ref: {
         allowNull: false,
         type: Sequelize.STRING(30),
       },
-      type_fr: {
+      name_en: {
+        allowNull: false,
+        type: Sequelize.STRING(30),
+      },
+      name_fr: {
         allowNull: false,
         type: Sequelize.STRING(30),
       },
       rgb: {
         allowNull: false,
-        type: Sequelize.STRING(6),
-      },
-      family_id: {
-        allowNull: false,
-        type: Sequelize.UUID,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'families',
-          key: 'id',
-        },
+        type: Sequelize.STRING(7),
       },
       created_at: {
         allowNull: false,

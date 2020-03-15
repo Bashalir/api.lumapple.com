@@ -1,4 +1,4 @@
-const { data } = require('../seeds/202003132119-data-families.js');
+const { families } = require('../seeds/202003132119-data-families--iphone.js');
 
 module.exports = {
   up: async (queryInterface) => {
@@ -12,7 +12,7 @@ module.exports = {
       ['id'],
     );
 
-    const families = data.map((family) =>
+    families.map((family) =>
       Object.assign(family, { category_id: iphoneUUID }),
     );
 

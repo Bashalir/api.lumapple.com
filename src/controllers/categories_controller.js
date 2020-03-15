@@ -1,6 +1,6 @@
 const { Category } = require('../models');
 
-const categoryController = {
+const categoriesController = {
   idCategory: async (categoryType) => {
     try {
       const categoryId = await Category.findOne({
@@ -14,4 +14,4 @@ const categoryController = {
   },
 };
 
-module.exports = categoryController;
+module.exports = categoriesController;

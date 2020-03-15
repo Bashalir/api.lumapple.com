@@ -1,41 +1,36 @@
 module.exports = (sequelize, DataTypes) => {
-  const Color = sequelize.define(
-    'Color',
+  const FamilyColor = sequelize.define(
+    'FamilyColor',
     {
-      id: {
+      familyId: {
+        field: 'family_id',
         allowNull: false,
         primaryKey: true,
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+        references: {
+          model: 'families',
+          key: 'id',
+        },
         validate: {
           isUUID: 4,
           notNull: true,
         },
       },
-      ref: {
-        type: DataTypes.STRING,
-        validate: {
-          len: [1, 30],
+
+      colorId: {
+        field: 'color_id',
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        references: {
+          model: 'colors',
+          key: 'id',
         },
-      },
-      nameEn: {
-        field: 'type_en',
-        type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
-      },
-      nameFr: {
-        field: 'type_fr',
-        type: DataTypes.STRING,
-        validate: {
-          len: [1, 30],
-        },
-      },
-      rgb: {
-        type: DataTypes.STRING,
-        validate: {
-          len: [7, 7],
+          isUUID: 4,
+          notNull: true,
         },
       },
 
@@ -59,16 +54,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: 'colors',
+      tableName: 'families_colors',
     },
   );
 
-  Color.associate = (models) => {
-    Color.belongsToMany(models.Family, {
-      through: 'families_colors',
-      foreignKey: 'family_id',
-    });
-  };
-
-  return Color;
+  return FamilyColor;
 };

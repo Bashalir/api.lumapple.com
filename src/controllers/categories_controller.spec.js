@@ -4,11 +4,11 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const uuid = require('uuid/v4');
 
-const categoryController = require('./category_controller');
+const categoryController = require('./categories_controller');
 
 const { Category } = require('../models');
 
-describe('Controllers :: categoryController', () => {
+describe('Controllers :: categoriesController', () => {
   describe('#idCategory', () => {
     it('should return the right object', async () => {
       // Given

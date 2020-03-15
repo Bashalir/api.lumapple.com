@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
           len: [1, 30],
         },
       },
+      displaySize: {
+        field: 'display_size',
+        type: DataTypes.FLOAT,
+        allowNull: false,
+      },
       categoryId: {
         field: 'category_id',
         type: DataTypes.UUID,
@@ -48,7 +53,16 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Family.associate = (models) => {
-    Family.hasMany(models.Color, { foreignKey: 'family_id' });
+    Family.belongsToMany(models.Color, {
+      through: 'families_colors',
+      foreignKey: 'color_id',
+    });
+
+    Family.belongsToMany(models.Storage, {
+      through: 'families_storages',
+      foreignKey: 'storage_id',
+    });
+
     Family.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
