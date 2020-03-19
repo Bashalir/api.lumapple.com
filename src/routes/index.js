@@ -1,12 +1,14 @@
 const express = require('express');
 
-const mainRouter = express.Router();
+const router = express.Router();
 const adminRouter = require('./admin_router');
+const storages = require('./storages');
 
-mainRouter.use('/admin', adminRouter);
+router.use('/admin', adminRouter);
+router.use('/storages', storages);
 
-mainRouter.use('*', (request, response) => {
+router.use('*', (request, response) => {
   response.status(404);
 });
 
-module.exports = mainRouter;
+module.exports = router;

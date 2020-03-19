@@ -1,5 +1,5 @@
-const { Product } = require('../models');
 const uuid = require('uuid/v4');
+const { Product } = require('../models');
 
 const productsController = {
   addProduct: async (data) => {

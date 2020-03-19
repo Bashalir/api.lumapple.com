@@ -4,16 +4,10 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const https = require('https');
-const fs = require('fs');
-
-const key = fs.readFileSync('./localhost-key.pem');
-const cert = fs.readFileSync('./localhost.pem');
-
 // const { notFoundHandler, errorLogger, errorHandler } = require('./middlewares');
 const routes = require('./routes');
 
-const server = https.createServer({ key, cert }, express());
+const server = express();
 
 server.use(helmet());
 server.use(logger('tiny'));

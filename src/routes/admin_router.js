@@ -2,12 +2,12 @@ const express = require('express');
 
 const { addProduct } = require('../controllers/products_controller');
 
-const adminRouter = express.Router();
+const router = express.Router();
 
-adminRouter.get('/', async (request, response) => {
+router.get('/', async (request, response) => {
   response.status(200).send('admin');
 });
-adminRouter.post('/products', async (request, response) => {
+router.post('/products', async (request, response) => {
   const data = request.body;
   const newProduct = await addProduct(data);
 
@@ -15,4 +15,4 @@ adminRouter.post('/products', async (request, response) => {
   response.json(newProduct);
 });
 
-module.exports = adminRouter;
+module.exports = router;

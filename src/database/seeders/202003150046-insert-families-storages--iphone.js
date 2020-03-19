@@ -39,13 +39,15 @@ module.exports = {
           updated_at: dateNow,
         };
       });
-      const result = await Promise.all(storagesId);
 
-      return result;
+      return Promise.all(storagesId);
     });
-    const result = await Promise.all(familiesID);
-    // await console.log('family', result.flat(1));
-    await queryInterface.bulkInsert('families_storages', result.flat(1));
+    const allStoragesByFamily = await Promise.all(familiesID);
+
+    await queryInterface.bulkInsert(
+      'families_storages',
+      allStoragesByFamily.flat(1),
+    );
   },
 
   down: async (queryInterface) => {
