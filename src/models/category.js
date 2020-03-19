@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true,
         },
       },
+      ref: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30],
+        },
+      },
       type: {
         type: DataTypes.STRING,
         validate: {

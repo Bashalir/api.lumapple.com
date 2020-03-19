@@ -6,7 +6,7 @@ module.exports = {
       'categories',
       {
         where: {
-          type: 'iPhone',
+          ref: 'iphone',
         },
       },
       ['id'],

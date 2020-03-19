@@ -1,10 +1,10 @@
 const { Category } = require('../models');
 
 const categoriesController = {
-  idCategory: async (categoryType) => {
+  idCategory: async (categoryRef) => {
     try {
       const categoryId = await Category.findOne({
-        where: { type: categoryType },
+        where: { ref: categoryRef },
         attributes: ['id'],
       });
       return categoryId;
