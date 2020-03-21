@@ -40,14 +40,14 @@ describe('Controllers :: storageController', () => {
     // });
     it('should return the list', async () => {
       // Given
-      const category = { type: 'iPhone' };
+      const category = { ref: 'iphone' };
 
       // When
       const storageList = await storagesController.filter(category);
 
       console.log(storageList);
       // Then
-      expect(storageList.calledOnce).to.be.true;
+      expect(storageList).to.be.an.array;
     });
   });
 });

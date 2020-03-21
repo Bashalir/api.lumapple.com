@@ -27,17 +27,30 @@ describe('Controllers :: categoriesController', () => {
         .returns(createReturnObject);
 
       // When
-      const createdObject = await categoryController.idCategory('iPhone');
+      const createdObject = await categoryController.idCategory('iphone');
 
       // Then
       expect(createStub.calledOnce).to.be.true;
       expect(createdObject).to.deep.equal(expectedObject);
+      createStub.restore();
     });
     it('should return a UUID', async () => {
       // Given
 
       // When
-      const iphoneUUID = await categoryController.idCategory('iPhone');
+      const iphoneUUID = await categoryController.idCategory('iphone');
+
+      // Then
+      console.log(iphoneUUID.id);
+      expect(iphoneUUID).to.be.an('object');
+      expect(iphoneUUID.id).to.be.a('string');
+      expect(iphoneUUID.id).to.have.lengthOf(36);
+    });
+    it('should return a error', async () => {
+      // Given
+
+      // When
+      const iphoneUUID = await categoryController.idCategory('mahmoud');
 
       // Then
       console.log(iphoneUUID.id);
