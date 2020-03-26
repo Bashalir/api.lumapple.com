@@ -10,13 +10,18 @@ const storagesController = {
       include: [
         {
           model: Category,
-          attributes: ['type'],
+          attributes: [],
           where: query,
         },
       ],
     });
     // console.log('storageList', storageList);
-    return storageList;
+    return storagesController.arrayObjectToArray(storageList);
+  },
+
+  arrayObjectToArray: async (array) => {
+    const flat = array.map((x) => x.capacity);
+    return flat;
   },
 };
 

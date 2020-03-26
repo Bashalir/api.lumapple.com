@@ -25,7 +25,7 @@ describe('Routes :: storages.js', () => {
       .get('/api/storages?type=iPhone')
       .end(function(err, res) {
         // console.log(res);
-        expect(res).to.be.an('object');
+        expect(res).to.be.an('array');
         done();
       });
   });

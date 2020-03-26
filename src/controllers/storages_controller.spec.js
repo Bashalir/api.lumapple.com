@@ -47,7 +47,22 @@ describe('Controllers :: storageController', () => {
 
       console.log(storageList);
       // Then
-      expect(storageList).to.be.an.array;
+      expect(storageList).to.be.an('array');
+    });
+
+    it('should return an Array with just the capacities number', async () => {
+      // Given
+      const category = { ref: 'iphone' };
+      const capacity = await storagesController.filter(category);
+      // When
+      const capacityList = await storagesController.arrayObjectToArray(
+        capacity,
+      );
+
+      console.log(capacityList);
+      // Then
+      expect(capacityList).to.be.an('array');
+      expect(capacityList[0]).to.be.an('number');
     });
   });
 });

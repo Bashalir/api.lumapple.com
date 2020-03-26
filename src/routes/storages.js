@@ -6,14 +6,10 @@ const storagesController = require('../controllers/storages_controller');
 router.get('/', async (request, response) => {
   // console.log(request.query);
   const { query } = request;
-  const storagesFilteredList = storagesController.filter(query);
-  console.log(storagesFilteredList);
-  response.status(200).send(storagesFilteredList);
-});
+  const storagesFilteredList = await storagesController.filter(query);
+  console.log('retour', storagesFilteredList);
 
-// router.get('/', async (request, response) => {
-//   const query = request.query;
-//   const result = await storagesController.filter
-// });
+  await response.status(200).json(storagesFilteredList);
+});
 
 module.exports = router;
