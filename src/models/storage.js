@@ -57,8 +57,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     });
     Storage.belongsToMany(models.Family, {
+      as: 'families',
       through: 'families_storages',
-      foreignKey: 'family_id',
+      foreignKey: {
+        name: 'storage_id',
+      },
     });
   };
 

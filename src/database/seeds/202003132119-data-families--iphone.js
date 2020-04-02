@@ -32,7 +32,7 @@ const families = [
   },
   {
     id: uuid(),
-    ref: 'iphoneXR',
+    ref: 'iphonexr',
     type: 'iPhone XR',
     display_size: 6.1,
     created_at: dateNow,

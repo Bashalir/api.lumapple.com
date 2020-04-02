@@ -19,14 +19,14 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       nameEn: {
-        field: 'type_en',
+        field: 'name_en',
         type: DataTypes.STRING,
         validate: {
           len: [1, 30],
         },
       },
       nameFr: {
-        field: 'type_fr',
+        field: 'name_fr',
         type: DataTypes.STRING,
         validate: {
           len: [1, 30],
@@ -66,7 +66,9 @@ module.exports = (sequelize, DataTypes) => {
   Color.associate = (models) => {
     Color.belongsToMany(models.Family, {
       through: 'families_colors',
-      foreignKey: 'family_id',
+      foreignKey: {
+        name: 'color_id',
+      },
     });
   };
 

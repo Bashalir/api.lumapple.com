@@ -60,19 +60,26 @@ module.exports = (sequelize, DataTypes) => {
 
   Family.associate = (models) => {
     Family.belongsToMany(models.Color, {
+      as: 'colors',
       through: 'families_colors',
-      foreignKey: 'color_id',
+      foreignKey: {
+        name: 'family_id',
+      },
     });
 
     Family.belongsToMany(models.Storage, {
+      as: 'storages',
       through: 'families_storages',
-      foreignKey: 'storage_id',
+      foreignKey: {
+        name: 'family_id',
+      },
     });
 
     Family.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'category_id',
+        name: 'categoryId',
+        field: 'category_id',
         allowNull: false,
       },
     });

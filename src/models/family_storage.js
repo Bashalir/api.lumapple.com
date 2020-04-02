@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
 
-      colorId: {
+      storageId: {
         field: 'storage_id',
         allowNull: false,
         primaryKey: true,

@@ -8,13 +8,13 @@ const request = require('supertest');
 const app = require('../server');
 // const { Storage } = require('../models');
 
-describe('Routes :: storages.js', () => {
-  it('should return a list of storage by category ref:"Iphone11"', (done) => {
+describe('Routes :: colors.js', () => {
+  it('should return a list of colors by family ref "iphone11" ', (done) => {
     request(app)
-      .get('/api/storages?ref=iphone11')
+      .get('/api/colors?ref=iphone11')
       .end(function(err, res) {
-        // console.log(res);
-        expect(res).to.be.an('object');
+        console.log(res.body);
+        expect(res.body).to.be.an('array');
         done();
       });
   });

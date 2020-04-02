@@ -4,15 +4,15 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const uuid = require('uuid/v4');
 
-const familiesController = require('./families_controller');
+const colorsController = require('./colors_controller');
 
-const { Family } = require('../models');
+const { Color } = require('../models');
 
-describe('Controllers :: familiesController', () => {
-  describe('#allFamilies', async () => {
+describe('Controllers :: colorsController', () => {
+  describe('#allColors', async () => {
     it('should return the right object', async () => {
       // Given
-      const category = { ref: 'iphone' };
+      const family = { ref: 'iphone11' };
 
       const expectedObject = [
         {
@@ -30,11 +30,11 @@ describe('Controllers :: familiesController', () => {
       const createReturnObject = [...expectedObject];
 
       const createStub = sinon
-        .stub(Family, 'findAll')
+        .stub(Color, 'findAll')
         .returns(createReturnObject);
 
       // When
-      const createdObject = await familiesController.filter(category);
+      const createdObject = await colorsController.filter(family);
 
       // Then
       expect(createStub.calledOnce).to.be.true;
@@ -43,15 +43,20 @@ describe('Controllers :: familiesController', () => {
     });
 
     it('should return an array with object', async () => {
-      const category = { ref: 'iphone' };
+      const family = { ref: 'iphone11' };
 
       // When
-      const familyList = await familiesController.filter(category);
+      const colorListRaw = await colorsController.filter(family);
 
-      // console.log(familyList);
+      const colorList = colorListRaw.map((colorRaw) => {
+        return colorRaw.dataValues;
+      });
       // Then
-      expect(familyList).to.be.an('array');
-      expect(familyList[0]).to.be.an('object');
+
+      console.log(colorList);
+
+      expect(colorList).to.be.an('array');
+      expect(colorList[0]).to.be.an('object');
     });
   });
 });

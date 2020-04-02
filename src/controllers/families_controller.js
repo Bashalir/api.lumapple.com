@@ -1,5 +1,23 @@
-const { Family } = require('../models');
+const { Family, Category } = require('../models');
 
-const familiesController = {};
+const familiesController = {
+  filter: async (query) => {
+    // console.log(query);
+
+    const familyList = await Family.findAll({
+      attributes: ['type', 'ref', 'display_size'],
+      raw: true,
+      include: [
+        {
+          model: Category,
+          attributes: [],
+          where: query,
+        },
+      ],
+    });
+    // console.log('storageList', storageList);
+    return familyList;
+  },
+};
 
 module.exports = familiesController;

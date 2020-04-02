@@ -1,4 +1,4 @@
-const { Storage, Category } = require('../models');
+const { Storage, Category, Family } = require('../models');
 
 const storagesController = {
   filter: async (query) => {
@@ -9,7 +9,8 @@ const storagesController = {
       raw: true,
       include: [
         {
-          model: Category,
+          model: Family,
+          as: 'families',
           attributes: [],
           where: query,
         },
