@@ -14,7 +14,6 @@ router.get('/', async (request, response) => {
 });
 
 router.post('/upload', uploadImageToBuffer, async (request, response) => {
-  console.log('request.file :', request.file);
   if (request.file) {
     const imageFile = convertBufferToString(request).content;
     return uploader
@@ -33,6 +32,7 @@ router.post('/upload', uploadImageToBuffer, async (request, response) => {
         }),
       );
   }
+  return response.status(500).send('no file');
 });
 
 // router.post('/products', async (request, response) => {
