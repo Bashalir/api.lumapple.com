@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Family = sequelize.define(
-    'Family',
+  const Option = sequelize.define(
+    'Option',
     {
       id: {
         allowNull: false,
@@ -12,26 +12,10 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true,
         },
       },
-      ref: {
+      option: {
         type: DataTypes.STRING,
-        validate: {
-          len: [1, 30],
-        },
-      },
-      type: {
-        type: DataTypes.STRING,
-        validate: {
-          len: [1, 30],
-        },
       },
 
-      // screenSize
-
-      displaySize: {
-        field: 'display_size',
-        type: DataTypes.FLOAT,
-        allowNull: false,
-      },
       categoryId: {
         field: 'category_id',
         type: DataTypes.UUID,
@@ -57,36 +41,19 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: 'families',
+      tableName: 'options',
     },
   );
 
-  Family.associate = (models) => {
-    Family.belongsToMany(models.Color, {
-      as: 'colors',
-      through: 'families_colors',
-      foreignKey: {
-        name: 'family_id',
-      },
-    });
-
-    Family.belongsToMany(models.Storage, {
-      as: 'storages',
-      through: 'families_storages',
-      foreignKey: {
-        name: 'family_id',
-      },
-    });
-
-    Family.belongsTo(models.Category, {
+  Option.associate = (models) => {
+    Option.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'categoryId',
-        field: 'category_id',
+        name: 'category_id',
         allowNull: false,
       },
     });
   };
 
-  return Family;
+  return Option;
 };

@@ -10,16 +10,27 @@ const router = express.Router();
 router.use('*', cloudinaryConfig);
 
 router.get('/', async (request, response) => {
-  response.status(200).send('admin');
+  response.status(200).send('admin2');
 });
+
+const uploadOptions = (fileName, folder) => {
+  return {
+    public_id: `${fileName}`,
+    folder: `${folder}`,
+    use_filename: true,
+    unique_filename: false,
+    format: 'webp',
+  };
+};
 
 router.post('/upload', uploadImageToBuffer, async (request, response) => {
   if (request.file) {
-    const imageFile = convertBufferToString(request).content;
+    const imageBlob = convertBufferToString(request).content;
     return uploader
-      .upload(imageFile)
+      .upload(imageBlob, uploadOptions('logo', 'families'))
       .then((result) => {
         const imageUrl = result.url;
+        console.log('result');
         return response.status(200).json({
           message: 'Your image has been uploded successfully to cloudinary',
           data: { imageUrl },

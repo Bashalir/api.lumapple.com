@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Family = sequelize.define(
-    'Family',
+  const Hull = sequelize.define(
+    'Hull',
     {
       id: {
         allowNull: false,
@@ -18,25 +18,27 @@ module.exports = (sequelize, DataTypes) => {
           len: [1, 30],
         },
       },
-      type: {
+      nameEn: {
+        field: 'name_en',
         type: DataTypes.STRING,
         validate: {
           len: [1, 30],
         },
       },
-
-      // screenSize
-
-      displaySize: {
-        field: 'display_size',
-        type: DataTypes.FLOAT,
-        allowNull: false,
+      nameFr: {
+        field: 'name_fr',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30],
+        },
       },
-      categoryId: {
-        field: 'category_id',
-        type: DataTypes.UUID,
-        allowNull: false,
+      order: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 2],
+        },
       },
+
       createdAt: {
         field: 'created_at',
         allowNull: false,
@@ -57,36 +59,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: 'families',
+      tableName: 'hull_states',
     },
   );
 
-  Family.associate = (models) => {
-    Family.belongsToMany(models.Color, {
-      as: 'colors',
-      through: 'families_colors',
-      foreignKey: {
-        name: 'family_id',
-      },
-    });
+  Hull.associate = (models) => {};
 
-    Family.belongsToMany(models.Storage, {
-      as: 'storages',
-      through: 'families_storages',
-      foreignKey: {
-        name: 'family_id',
-      },
-    });
-
-    Family.belongsTo(models.Category, {
-      onDelete: 'CASCADE',
-      foreignKey: {
-        name: 'categoryId',
-        field: 'category_id',
-        allowNull: false,
-      },
-    });
-  };
-
-  return Family;
+  return Hull;
 };
