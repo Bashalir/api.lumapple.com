@@ -1,0 +1,40 @@
+version: "3"
+services:
+  api:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+        DB_USERNAME: tester
+        DB_PASSWORD: test
+        DB_NAME: lumapple
+        DB_HOST: postgres
+    ports:
+      - "8000:8000"
+    restart: always
+    command: npm run start
+    volumes:
+      - .:/app/
+      - /app/node_modules
+      - src-data:/usr/src/app
+
+  postgres:
+    image: postgres:10.4
+    ports:
+      - "35432:5432"
+    restart: always
+    volumes:
+        - /var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: tester
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: lumapple
+volumes:
+    src-data:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/home/bashalir/Projets/Lumapple/api.lumapple.com'
+
+     

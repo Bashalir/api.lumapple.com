@@ -10,7 +10,7 @@ const router = express.Router();
 router.use('*', cloudinaryConfig);
 
 router.get('/', async (request, response) => {
-  response.status(200).send('admin2');
+  response.status(200).send('admin25');
 });
 
 const uploadOptions = (fileName, folder) => {

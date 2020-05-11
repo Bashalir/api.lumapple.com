@@ -5,7 +5,7 @@ const familiesController = {
     // console.log(query);
 
     const familyList = await Family.findAll({
-      attributes: ['type', 'ref', 'display_size'],
+      attributes: ['id','type', 'ref', 'display_size'],
       raw: true,
       include: [
         {

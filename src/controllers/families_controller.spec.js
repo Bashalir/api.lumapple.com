@@ -13,9 +13,10 @@ describe('Controllers :: familiesController', () => {
     it('should return the right object', async () => {
       // Given
       const category = { ref: 'iphone' };
-
+      const id = uuid();
       const expectedObject = [
         {
+          id,
           type: 'iPhone 11 Pro Max',
           ref: 'iphone11_pro_max',
           display_size: 6.5,
