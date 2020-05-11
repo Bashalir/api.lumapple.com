@@ -9,13 +9,14 @@ const app = require('../server');
 // const { Storage } = require('../models');
 
 describe('Routes :: colors.js', () => {
-  it('should return a list of colors by family ref "iphone11" ', (done) => {
+  it('should return a array with list of colors by "iphone11" family ', (done) => {
     request(app)
       .get('/api/colors?ref=iphone11')
       .end(function(err, res) {
-        console.log(res.body);
         expect(res.body).to.be.an('array');
+        console.log(res.body);
         done();
       });
+      
   });
 });

@@ -10,22 +10,19 @@ const { Color } = require('../models');
 
 describe('Controllers :: colorsController', () => {
   describe('#allColors', async () => {
-    it('should return the right object', async () => {
+    it('should return the list of all colors for the family iphone 11', async () => {
       // Given
       const family = { ref: 'iphone11' };
 
       const expectedObject = [
-        {
-          type: 'iPhone 11 Pro Max',
-          ref: 'iphone11_pro_max',
-          display_size: 6.5,
-        },
-        { type: 'iPhone 11 Pro', ref: 'iphone11_pro', display_size: 5.8 },
-        { type: 'iPhone 11', ref: 'iphone11', display_size: 6.1 },
-        { type: 'iPhone XR', ref: 'iphoneXR', display_size: 6.1 },
-        { type: 'iPhone 8 Plus', ref: 'iphone8_plus', display_size: 5.5 },
-        { type: 'iPhone 8', ref: 'iphone8', display_size: 4.7 },
-      ];
+        { ref: 'p_white', name_fr: 'Blanc', rgb: '#f9f6ef' },
+        { ref: 'p_yellow', name_fr: 'Jaune', rgb: '#ffe681' },
+        { ref: 'purple', name_fr: 'Mauve', rgb: '#d1cdda' },
+        { ref: 'black', name_fr: 'Noir', rgb: '#1f2020' },
+        { ref: 'product_red', name_fr: 'Rouge', rgb: '#ba0c2e' },
+        { ref: 'p_green', name_fr: 'Vert', rgb: '#aee1cd' }
+      ]
+      ;
 
       const createReturnObject = [...expectedObject];
 
@@ -42,7 +39,7 @@ describe('Controllers :: colorsController', () => {
       createStub.restore();
     });
 
-    it('should return an array with object', async () => {
+    it('should return an array with all iphone11 family color', async () => {
       const family = { ref: 'iphone11' };
 
       // When
@@ -52,8 +49,6 @@ describe('Controllers :: colorsController', () => {
         return colorRaw.dataValues;
       });
       // Then
-
-      console.log(colorList);
 
       expect(colorList).to.be.an('array');
       expect(colorList[0]).to.be.an('object');

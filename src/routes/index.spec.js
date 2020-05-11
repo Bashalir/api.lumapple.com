@@ -6,7 +6,6 @@ const uuid = require('uuid/v4');
 // eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
 const app = require('../server');
-const { Product } = require('../models');
 
 describe('Routes :: index.js', () => {
   describe('admin:: admin_router.js', () => {
@@ -39,12 +38,6 @@ describe('Routes :: index.js', () => {
       videoCard: 'Iris Graphics 540',
     };
 
-    it('should return a new product object', (done) => {
-      request(app)
-        .post('/api/admin/products')
-        .send(data)
-        .set('Accept', 'application/json')
-        .expect(201, done);
-    });
+
   });
 });

@@ -2,7 +2,7 @@ const { Color, Family, FamilyColor } = require('../models');
 
 const colorsController = {
   filter: async (query) => {
-    // console.log(query);
+
 
     const colorList = await Color.findAll({
       attributes: ['ref', 'name_fr', 'rgb'],
@@ -18,8 +18,7 @@ const colorsController = {
         },
       ],
     });
-    // console.log('storageList', colorList[0].Color);
-    console.log(colorList);
+
     return colorList;
   },
 };

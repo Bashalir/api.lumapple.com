@@ -6,7 +6,7 @@ const { Ad } = require('../models');
 const adsController = require('./ads_controller');
 
 describe('Controllers :: adsController', () => {
-  describe('#addAs', () => {
+  describe('#addAd', () => {
     it('should return send confirmation', async () => {
       // Given
       const adForm = {
