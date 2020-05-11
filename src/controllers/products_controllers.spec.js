@@ -23,22 +23,20 @@ describe('Controllers :: productController', () => {
         storage: '256 GB SSD',
         processor: 'Core i5 (I5-6360U)',
         screen: '13.3" Widescreen',
-        videoCard: 'Iris Graphics 540',
+        videoCard: 'Iris Graphics 540'
       };
 
       const createReturnObject = {
         id,
-        ...data,
+        ...data
       };
 
       const expectedObject = {
         id,
-        ...data,
+        ...data
       };
 
-      const createStub = sinon
-        .stub(Product, 'create')
-        .returns(createReturnObject);
+      const createStub = sinon.stub(Product, 'create').returns(createReturnObject);
 
       // When
       const createdObject = await productController.addProduct(data);

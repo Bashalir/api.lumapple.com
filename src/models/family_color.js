@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         references: {
           model: 'families',
-          key: 'id',
+          key: 'id'
         },
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
 
       colorId: {
@@ -26,12 +26,12 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         references: {
           model: 'colors',
-          key: 'id',
+          key: 'id'
         },
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
 
       createdAt: {
@@ -40,8 +40,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
+          isDate: true
+        }
       },
       updatedAt: {
         field: 'updated_at',
@@ -49,13 +49,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
-      },
+          isDate: true
+        }
+      }
     },
     {
-      tableName: 'families_colors',
-    },
+      tableName: 'families_colors'
+    }
   );
 
   return FamilyColor;

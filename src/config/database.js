@@ -9,9 +9,9 @@ module.exports = {
     dialect: 'postgres',
     define: {
       createdAt: 'created_at',
-      updatedAt: 'updated_at',
+      updatedAt: 'updated_at'
     },
-    quoteIdentifiers: false,
+    quoteIdentifiers: false
   },
   test: {
     username: process.env.DB_USERNAME,
@@ -21,9 +21,9 @@ module.exports = {
     dialect: 'postgres',
     define: {
       createdAt: 'created_at',
-      updatedAt: 'updated_at',
+      updatedAt: 'updated_at'
     },
-    quoteIdentifiers: false,
+    quoteIdentifiers: false
   },
   production: {
     username: process.env.DB_USERNAME,
@@ -32,8 +32,8 @@ module.exports = {
     host: process.env.DB_HOST,
     define: {
       createdAt: 'created_at',
-      updatedAt: 'updated_at',
+      updatedAt: 'updated_at'
     },
-    dialect: 'postgres',
-  },
+    dialect: 'postgres'
+  }
 };

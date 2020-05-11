@@ -9,20 +9,20 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
       capacity: {
         type: DataTypes.INTEGER,
         validate: {
           min: 1,
-          max: 10000,
-        },
+          max: 10000
+        }
       },
       categoryId: {
         field: 'category_id',
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         field: 'created_at',
@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
+          isDate: true
+        }
       },
       updatedAt: {
         field: 'updated_at',
@@ -39,29 +39,29 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
-      },
+          isDate: true
+        }
+      }
     },
     {
-      tableName: 'storages',
-    },
+      tableName: 'storages'
+    }
   );
 
-  Storage.associate = (models) => {
+  Storage.associate = models => {
     Storage.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
     Storage.belongsToMany(models.Family, {
       as: 'families',
       through: 'families_storages',
       foreignKey: {
-        name: 'storage_id',
-      },
+        name: 'storage_id'
+      }
     });
   };
 

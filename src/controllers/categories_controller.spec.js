@@ -15,16 +15,14 @@ describe('Controllers :: categoriesController', () => {
       const id = uuid();
 
       const createReturnObject = {
-        id,
+        id
       };
 
       const expectedObject = {
-        id,
+        id
       };
 
-      const createStub = sinon
-        .stub(Category, 'findOne')
-        .returns(createReturnObject);
+      const createStub = sinon.stub(Category, 'findOne').returns(createReturnObject);
 
       // When
       const createdObject = await categoryController.idCategory('iphone');
@@ -41,7 +39,6 @@ describe('Controllers :: categoriesController', () => {
       const iphoneUUID = await categoryController.idCategory('iphone');
 
       // Then
-      console.log(iphoneUUID.id);
       expect(iphoneUUID).to.be.an('object');
       expect(iphoneUUID.id).to.be.a('string');
       expect(iphoneUUID.id).to.have.lengthOf(36);
@@ -54,7 +51,6 @@ describe('Controllers :: categoriesController', () => {
 
       // Then
       expect(iphoneUUID).to.be.a('null');
-
     });
   });
 });

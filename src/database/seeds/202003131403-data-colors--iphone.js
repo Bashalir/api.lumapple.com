@@ -13,7 +13,7 @@ const colors = [
     name_fr: 'Vert nuit',
     rgb: '#4e5851',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -22,7 +22,7 @@ const colors = [
     name_fr: 'Argent',
     rgb: '#ebebe3',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -31,7 +31,7 @@ const colors = [
     name_fr: 'Gris sidéral',
     rgb: '#535150',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -40,7 +40,7 @@ const colors = [
     name_fr: 'Or',
     rgb: '#fad7bd',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -49,7 +49,7 @@ const colors = [
     name_fr: 'Mauve',
     rgb: '#d1cdda',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -58,7 +58,7 @@ const colors = [
     name_fr: 'Jaune',
     rgb: '#ffe681',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -67,7 +67,7 @@ const colors = [
     name_fr: 'Vert',
     rgb: '#aee1cd',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -76,7 +76,7 @@ const colors = [
     name_fr: 'Noir',
     rgb: '#1f2020',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -85,7 +85,7 @@ const colors = [
     name_fr: 'Blanc',
     rgb: '#f9f6ef',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -94,7 +94,7 @@ const colors = [
     name_fr: 'Rouge',
     rgb: '#ba0c2e',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -103,7 +103,7 @@ const colors = [
     name_fr: 'Bleu',
     rgb: '#48aee6',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -112,7 +112,7 @@ const colors = [
     name_fr: 'Blanc',
     rgb: '#f3f3f3',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -121,7 +121,7 @@ const colors = [
     name_fr: 'Jaune',
     rgb: '#f9d045',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -130,7 +130,7 @@ const colors = [
     name_fr: 'Corail',
     rgb: '#ff6e5a',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -139,7 +139,7 @@ const colors = [
     name_fr: 'Or',
     rgb: '#e3ccb4',
     created_at: dateNow,
-    updated_at: dateNow,
+    updated_at: dateNow
   },
   {
     id: uuid(),
@@ -148,10 +148,10 @@ const colors = [
     name_fr: 'Or rose',
     rgb: '#ecc6c1',
     created_at: dateNow,
-    updated_at: dateNow,
-  },
+    updated_at: dateNow
+  }
 ];
 
 module.exports = {
-  colors,
+  colors
 };

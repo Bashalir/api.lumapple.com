@@ -9,17 +9,17 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
       option: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
 
       categoryId: {
         field: 'category_id',
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         field: 'created_at',
@@ -27,8 +27,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
+          isDate: true
+        }
       },
       updatedAt: {
         field: 'updated_at',
@@ -36,22 +36,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
-      },
+          isDate: true
+        }
+      }
     },
     {
-      tableName: 'options',
-    },
+      tableName: 'options'
+    }
   );
 
-  Option.associate = (models) => {
+  Option.associate = models => {
     Option.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
   };
 

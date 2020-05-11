@@ -5,12 +5,12 @@ module.exports = (sequelize, DataTypes) => {
       reference: DataTypes.STRING,
       description: DataTypes.STRING,
       url: DataTypes.STRING,
-      category_photo_id: DataTypes.STRING,
+      category_photo_id: DataTypes.STRING
     },
-    {},
+    {}
   );
-  Photo.associate = function(models) {
+  /* Photo.associate = function(models) {
     // associations can be defined here
-  };
+  }; */
   return Photo;
 };

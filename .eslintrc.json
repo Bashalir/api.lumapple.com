@@ -9,7 +9,7 @@
     "eslint:recommended",
     "plugin:promise/recommended",
     "plugin:node/recommended",
-    "airbnb-base",
+    "airbnb",
     "prettier"
   ],
   "plugins": ["promise", "node", "prettier"],
@@ -21,6 +21,6 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": ["error"]
   }
 }

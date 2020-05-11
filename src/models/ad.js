@@ -9,55 +9,55 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
       familyId: {
         field: 'family_id',
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: false
       },
       colorId: {
         field: 'color_id',
         type: DataTypes.UUID,
-        allowNull: true,
+        allowNull: true
       },
 
       processorId: {
         field: 'processor_id',
         type: DataTypes.UUID,
-        allowNull: true,
+        allowNull: true
       },
 
       storageId: {
         field: 'storage_id',
         type: DataTypes.UUID,
-        allowNull: true,
+        allowNull: true
       },
 
       optionId: {
         field: 'option_id',
         type: DataTypes.UUID,
-        allowNull: true,
+        allowNull: true
       },
 
       price: {
         type: DataTypes.INTEGER,
         validate: {
           min: 0,
-          max: 9999,
-        },
-      },
+          max: 9999
+        }
+      }
     },
-    { tableName: 'ads' },
+    { tableName: 'ads' }
   );
-  Ad.associate = (models) => {
+  Ad.associate = models => {
     Ad.belongsTo(models.Family, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'family_id',
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
   };
   return Ad;

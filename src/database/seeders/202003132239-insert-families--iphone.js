@@ -1,24 +1,22 @@
 const { families } = require('../seeds/202003132119-data-families--iphone.js');
 
 module.exports = {
-  up: async (queryInterface) => {
+  up: async queryInterface => {
     const iphoneUUID = await queryInterface.rawSelect(
       'categories',
       {
         where: {
-          type: 'iPhone',
-        },
+          type: 'iPhone'
+        }
       },
-      ['id'],
+      ['id']
     );
 
-    families.map((family) =>
-      Object.assign(family, { category_id: iphoneUUID }),
-    );
+    families.map(family => Object.assign(family, { category_id: iphoneUUID }));
 
     await queryInterface.bulkInsert('families', families, {});
   },
-  down: async (queryInterface) => {
+  down: async queryInterface => {
     await queryInterface.bulkDelete('families', null, {});
-  },
+  }
 };

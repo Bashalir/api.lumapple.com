@@ -1,24 +1,24 @@
 /* eslint-disable no-unused-vars */
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('processors', {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.createTable('processors', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        defaultValue: Sequelize.UUIDV4
       },
       type: {
         allowNull: false,
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(30)
       },
       speed: {
         allowNull: false,
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(10)
       },
       cores: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       category_id: {
         allowNull: false,
@@ -26,22 +26,19 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'categories',
-          key: 'id',
-        },
+          key: 'id'
+        }
       },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
+        defaultValue: Sequelize.NOW
       },
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-      },
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('processors');
-  },
+        defaultValue: Sequelize.NOW
+      }
+    }),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('processors')
 };

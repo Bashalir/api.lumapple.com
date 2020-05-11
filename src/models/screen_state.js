@@ -4,12 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     {
       ref: DataTypes.STRING,
       name: DataTypes.STRING,
-      order: DataTypes.INTEGER,
+      order: DataTypes.INTEGER
     },
-    {},
+    {}
   );
-  ScreenState.associate = function(models) {
+  /* ScreenState.associate = function(models) {
     // associations can be defined here
-  };
+  }; */
   return ScreenState;
 };

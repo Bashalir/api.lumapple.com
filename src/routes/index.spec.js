@@ -1,7 +1,5 @@
-const { expect } = require('chai');
 // eslint-disable-next-line node/no-unpublished-require
-const sinon = require('sinon');
-const uuid = require('uuid/v4');
+const { expect } = require('chai');
 
 // eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
@@ -9,10 +7,10 @@ const app = require('../server');
 
 describe('Routes :: index.js', () => {
   describe('admin:: admin_router.js', () => {
-    it('should return admin', (done) => {
+    it('should return admin', done => {
       request(app)
         .get('/api/admin')
-        .end(function(err, res) {
+        .end((err, res) => {
           expect(res.statusCode).to.equal(200);
           expect(res.text).to.equal('admin');
           done();
@@ -20,8 +18,8 @@ describe('Routes :: index.js', () => {
     });
   });
 
-  describe('POST /roles', () => {
-    afterEach((done) => {
+  /*  describe('POST /roles', () => {
+    afterEach(done => {
       Product.truncate();
       done();
     });
@@ -35,9 +33,7 @@ describe('Routes :: index.js', () => {
       storage: '256 GB SSD',
       processor: 'Core i5 (I5-6360U)',
       screen: '13.3" Widescreen',
-      videoCard: 'Iris Graphics 540',
+      videoCard: 'Iris Graphics 540'
     };
-
-
-  });
+  }); */
 });

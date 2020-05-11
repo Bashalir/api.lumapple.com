@@ -3,12 +3,12 @@ module.exports = (sequelize, DataTypes) => {
     'AdPhoto',
     {
       ad_id: DataTypes.STRING,
-      color_id: DataTypes.STRING,
+      color_id: DataTypes.STRING
     },
-    {},
+    {}
   );
-  AdPhoto.associate = function(models) {
+  /*  AdPhoto.associate = function(models) {
     // associations can be defined here
-  };
+  }; */
   return AdPhoto;
 };

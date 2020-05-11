@@ -1,36 +1,33 @@
 /* eslint-disable no-unused-vars */
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('hull_states', {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.createTable('hull_states', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        defaultValue: Sequelize.UUIDV4
       },
       ref: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(10)
       },
       name_en: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(10)
       },
       name_fr: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(10)
       },
       order: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('hull_states');
-  },
+        type: Sequelize.DATE
+      }
+    }),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('hull_states')
 };

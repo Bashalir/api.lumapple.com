@@ -1,9 +1,7 @@
-const { Color, Family, FamilyColor } = require('../models');
+const { Color, Family } = require('../models');
 
 const colorsController = {
-  filter: async (query) => {
-
-
+  filter: async query => {
     const colorList = await Color.findAll({
       attributes: ['ref', 'name_fr', 'rgb'],
       order: [['name_fr', 'ASC']],
@@ -14,13 +12,13 @@ const colorsController = {
           model: Family,
           where: query,
           attributes: [],
-          through: { attributes: [] },
-        },
-      ],
+          through: { attributes: [] }
+        }
+      ]
     });
 
     return colorList;
-  },
+  }
 };
 
 module.exports = colorsController;

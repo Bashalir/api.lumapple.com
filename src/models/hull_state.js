@@ -9,34 +9,34 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
       ref: {
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       nameEn: {
         field: 'name_en',
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       nameFr: {
         field: 'name_fr',
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       order: {
         type: DataTypes.STRING,
         validate: {
-          len: [1, 2],
-        },
+          len: [1, 2]
+        }
       },
 
       createdAt: {
@@ -45,8 +45,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
+          isDate: true
+        }
       },
       updatedAt: {
         field: 'updated_at',
@@ -54,16 +54,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
-      },
+          isDate: true
+        }
+      }
     },
     {
-      tableName: 'hull_states',
-    },
+      tableName: 'hull_states'
+    }
   );
 
-  Hull.associate = (models) => {};
+  // Hull.associate = models => {};
 
   return Hull;
 };

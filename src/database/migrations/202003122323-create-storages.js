@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('storages', {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.createTable('storages', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        defaultValue: Sequelize.UUIDV4
       },
       capacity: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       category_id: {
         allowNull: false,
@@ -18,22 +18,19 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'categories',
-          key: 'id',
-        },
+          key: 'id'
+        }
       },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
+        defaultValue: Sequelize.NOW
       },
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW,
-      },
-    });
-  },
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('storages');
-  },
+        defaultValue: Sequelize.NOW
+      }
+    }),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('storages')
 };

@@ -2,7 +2,6 @@
 /* eslint-disable node/no-unpublished-require */
 const { expect } = require('chai');
 const sinon = require('sinon');
-const uuid = require('uuid/v4');
 
 const colorsController = require('./colors_controller');
 
@@ -21,14 +20,10 @@ describe('Controllers :: colorsController', () => {
         { ref: 'black', name_fr: 'Noir', rgb: '#1f2020' },
         { ref: 'product_red', name_fr: 'Rouge', rgb: '#ba0c2e' },
         { ref: 'p_green', name_fr: 'Vert', rgb: '#aee1cd' }
-      ]
-      ;
-
+      ];
       const createReturnObject = [...expectedObject];
 
-      const createStub = sinon
-        .stub(Color, 'findAll')
-        .returns(createReturnObject);
+      const createStub = sinon.stub(Color, 'findAll').returns(createReturnObject);
 
       // When
       const createdObject = await colorsController.filter(family);
@@ -45,9 +40,7 @@ describe('Controllers :: colorsController', () => {
       // When
       const colorListRaw = await colorsController.filter(family);
 
-      const colorList = colorListRaw.map((colorRaw) => {
-        return colorRaw.dataValues;
-      });
+      const colorList = colorListRaw.map(colorRaw => colorRaw.dataValues);
       // Then
 
       expect(colorList).to.be.an('array');

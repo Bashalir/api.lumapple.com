@@ -1,7 +1,7 @@
-const { Storage, Category, Family } = require('../models');
+const { Storage, Family } = require('../models');
 
 const storagesController = {
-  filter: async (query) => {
+  filter: async query => {
     // console.log(query);
 
     const storageList = await Storage.findAll({
@@ -12,18 +12,18 @@ const storagesController = {
           model: Family,
           as: 'families',
           attributes: [],
-          where: query,
-        },
-      ],
+          where: query
+        }
+      ]
     });
     // console.log('storageList', storageList);
     return storagesController.arrayObjectToArray(storageList);
   },
 
-  arrayObjectToArray: async (array) => {
-    const flat = array.map((x) => x.capacity);
+  arrayObjectToArray: async array => {
+    const flat = array.map(x => x.capacity);
     return flat;
-  },
+  }
 };
 
 module.exports = storagesController;

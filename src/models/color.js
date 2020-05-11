@@ -9,34 +9,34 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
       ref: {
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       nameEn: {
         field: 'name_en',
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       nameFr: {
         field: 'name_fr',
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       rgb: {
         type: DataTypes.STRING,
         validate: {
-          len: [7, 7],
-        },
+          len: [7, 7]
+        }
       },
 
       createdAt: {
@@ -45,8 +45,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
+          isDate: true
+        }
       },
       updatedAt: {
         field: 'updated_at',
@@ -54,21 +54,21 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
-      },
+          isDate: true
+        }
+      }
     },
     {
-      tableName: 'colors',
-    },
+      tableName: 'colors'
+    }
   );
 
-  Color.associate = (models) => {
+  Color.associate = models => {
     Color.belongsToMany(models.Family, {
       through: 'families_colors',
       foreignKey: {
-        name: 'color_id',
-      },
+        name: 'color_id'
+      }
     });
   };
 

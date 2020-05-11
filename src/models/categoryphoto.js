@@ -3,12 +3,12 @@ module.exports = (sequelize, DataTypes) => {
     'CategoryPhoto',
     {
       references: DataTypes.STRING,
-      folder_name: DataTypes.STRING,
+      folder_name: DataTypes.STRING
     },
-    {},
+    {}
   );
-  CategoryPhoto.associate = function(models) {
+  /*  CategoryPhoto.associate = function(models) {
     // associations can be defined here
-  };
+  }; */
   return CategoryPhoto;
 };

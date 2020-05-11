@@ -9,28 +9,28 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         validate: {
           isUUID: 4,
-          notNull: true,
-        },
+          notNull: true
+        }
       },
       type: {
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       speed: {
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30],
-        },
+          len: [1, 30]
+        }
       },
       cores: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER
       },
       categoryId: {
         field: 'category_id',
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: false
       },
       createdAt: {
         field: 'created_at',
@@ -38,8 +38,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
+          isDate: true
+        }
       },
       updatedAt: {
         field: 'updated_at',
@@ -47,22 +47,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         validate: {
-          isDate: true,
-        },
-      },
+          isDate: true
+        }
+      }
     },
     {
-      tableName: 'processors',
-    },
+      tableName: 'processors'
+    }
   );
 
-  Processor.associate = (models) => {
+  Processor.associate = models => {
     Processor.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'category_id',
-        allowNull: false,
-      },
+        allowNull: false
+      }
     });
   };
 

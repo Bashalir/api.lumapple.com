@@ -7,7 +7,6 @@ router.get('/', async (request, response) => {
   // console.log(request.query);
   const { query } = request;
   const storagesFilteredList = await storagesController.filter(query);
-  console.log('retour', storagesFilteredList);
 
   await response.status(200).json(storagesFilteredList);
 });

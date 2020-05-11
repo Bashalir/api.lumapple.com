@@ -4,39 +4,37 @@ const dateNow = moment()
   .utc()
   .toDate();
 
-const {
-  familiesColors,
-} = require('../seeds/202003141541-data-families-colors--iphone');
+const { familiesColors } = require('../seeds/202003141541-data-families-colors--iphone');
 
 module.exports = {
-  up: async (queryInterface) => {
-    const familiesID = await familiesColors.map(async (familyColor) => {
+  up: async queryInterface => {
+    const familiesID = await familiesColors.map(async familyColor => {
       const familyId = await queryInterface.rawSelect(
         'families',
         {
           where: {
-            type: familyColor.type,
-          },
+            type: familyColor.type
+          }
         },
-        ['id'],
+        ['id']
       );
 
-      const colorsId = await familyColor.colors.map(async (color) => {
+      const colorsId = await familyColor.colors.map(async color => {
         const colorId = await queryInterface.rawSelect(
           'colors',
           {
             where: {
-              ref: color,
-            },
+              ref: color
+            }
           },
-          ['id'],
+          ['id']
         );
 
         return {
           family_id: familyId,
           color_id: colorId,
           created_at: dateNow,
-          updated_at: dateNow,
+          updated_at: dateNow
         };
       });
       const result = await Promise.all(colorsId);
@@ -48,7 +46,7 @@ module.exports = {
     await queryInterface.bulkInsert('families_colors', result.flat(1));
   },
 
-  down: async (queryInterface) => {
+  down: async queryInterface => {
     await queryInterface.bulkDelete('families_colors', null, {});
-  },
+  }
 };

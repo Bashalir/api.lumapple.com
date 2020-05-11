@@ -19,20 +19,18 @@ describe('Controllers :: familiesController', () => {
           id,
           type: 'iPhone 11 Pro Max',
           ref: 'iphone11_pro_max',
-          display_size: 6.5,
+          display_size: 6.5
         },
         { type: 'iPhone 11 Pro', ref: 'iphone11_pro', display_size: 5.8 },
         { type: 'iPhone 11', ref: 'iphone11', display_size: 6.1 },
         { type: 'iPhone XR', ref: 'iphoneXR', display_size: 6.1 },
         { type: 'iPhone 8 Plus', ref: 'iphone8_plus', display_size: 5.5 },
-        { type: 'iPhone 8', ref: 'iphone8', display_size: 4.7 },
+        { type: 'iPhone 8', ref: 'iphone8', display_size: 4.7 }
       ];
 
       const createReturnObject = [...expectedObject];
 
-      const createStub = sinon
-        .stub(Family, 'findAll')
-        .returns(createReturnObject);
+      const createStub = sinon.stub(Family, 'findAll').returns(createReturnObject);
 
       // When
       const createdObject = await familiesController.filter(category);

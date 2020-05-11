@@ -13,34 +13,31 @@ router.get('/', async (request, response) => {
   response.status(200).send('admin');
 });
 
-const uploadOptions = (fileName, folder) => {
-  return {
-    public_id: `${fileName}`,
-    folder: `${folder}`,
-    use_filename: true,
-    unique_filename: false,
-    format: 'webp',
-  };
-};
+const uploadOptions = (fileName, folder) => ({
+  public_id: `${fileName}`,
+  folder: `${folder}`,
+  use_filename: true,
+  unique_filename: false,
+  format: 'webp'
+});
 
 router.post('/upload', uploadImageToBuffer, async (request, response) => {
   if (request.file) {
     const imageBlob = convertBufferToString(request).content;
     return uploader
       .upload(imageBlob, uploadOptions('logo', 'families'))
-      .then((result) => {
+      .then(result => {
         const imageUrl = result.url;
-        console.log('result');
         return response.status(200).json({
           message: 'Your image has been uploded successfully to cloudinary',
-          data: { imageUrl },
+          data: { imageUrl }
         });
       })
-      .catch((err) =>
+      .catch(err =>
         response.status(400).json({
           messge: 'someting went wrong while processing your request',
-          data: { err },
-        }),
+          data: { err }
+        })
       );
   }
   return response.status(500).send('no file');

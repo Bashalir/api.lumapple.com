@@ -1,24 +1,22 @@
 const { storages } = require('../seeds/202003150019-data-storages--iphone');
 
 module.exports = {
-  up: async (queryInterface) => {
+  up: async queryInterface => {
     const iphoneUUID = await queryInterface.rawSelect(
       'categories',
       {
         where: {
-          ref: 'iphone',
-        },
+          ref: 'iphone'
+        }
       },
-      ['id'],
+      ['id']
     );
 
-    storages.map((storage) =>
-      Object.assign(storage, { category_id: iphoneUUID }),
-    );
+    storages.map(storage => Object.assign(storage, { category_id: iphoneUUID }));
 
     await queryInterface.bulkInsert('storages', storages, {});
   },
-  down: async (queryInterface) => {
+  down: async queryInterface => {
     await queryInterface.bulkDelete('storages', null, {});
-  },
+  }
 };
