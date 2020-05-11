@@ -9,7 +9,7 @@
     "eslint:recommended",
     "plugin:promise/recommended",
     "plugin:node/recommended",
-    "airbnb",
+    "airbnb-base",
     "prettier"
   ],
   "plugins": ["promise", "node", "prettier"],
