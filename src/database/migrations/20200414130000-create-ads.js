@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Ads', {
@@ -6,40 +5,40 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       category_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       product_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       storage_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       color_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       screen_state_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       hull_state_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       price: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Ads');
-  }
+  },
 };
