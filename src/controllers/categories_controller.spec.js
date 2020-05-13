@@ -4,7 +4,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const uuid = require('uuid/v4');
 
-const categoryController = require('./categories_controller');
+const categoriesController = require('./categories_controller');
 
 const { Category } = require('../models');
 
@@ -25,7 +25,7 @@ describe('Controllers :: categoriesController', () => {
       const createStub = sinon.stub(Category, 'findOne').returns(createReturnObject);
 
       // When
-      const createdObject = await categoryController.idCategory('iphone');
+      const createdObject = await categoriesController.idCategory('iphone');
 
       // Then
       expect(createStub.calledOnce).to.be.true;
@@ -36,7 +36,7 @@ describe('Controllers :: categoriesController', () => {
       // Given
 
       // When
-      const iphoneUUID = await categoryController.idCategory('iphone');
+      const iphoneUUID = await categoriesController.idCategory('iphone');
 
       // Then
       expect(iphoneUUID).to.be.an('object');
@@ -47,7 +47,7 @@ describe('Controllers :: categoriesController', () => {
       // Given
 
       // When
-      const iphoneUUID = await categoryController.idCategory('mahmoud');
+      const iphoneUUID = await categoriesController.idCategory('mahmoud');
 
       // Then
       expect(iphoneUUID).to.be.a('null');

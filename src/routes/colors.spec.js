@@ -4,7 +4,6 @@ const { expect } = require('chai');
 // eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
 const app = require('../server');
-// const { Storage } = require('../models');
 
 describe('Routes :: colors.js', () => {
   it('should return a array with list of colors by "iphone11" family ', done => {
