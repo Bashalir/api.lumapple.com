@@ -1,4 +1,4 @@
-const { colors } = require('../seeds/202003131403-data-colors--iphone');
+const { colors } = require('../seeds/20200313140345-data-colors--iphone');
 
 module.exports = {
   up: async queryInterface => {

@@ -5,22 +5,15 @@ const adsController = require('../controllers/ads_controller');
 
 router.post('/', async (request, response) => {
   // eslint-disable-next-line camelcase
-  const { family_id, color_id, processor_id, storage_id, option_id, price } = request.body;
 
   try {
+    console.log('body');
     console.log(request.body);
-    const newAd = await adsController.postAd(
-      family_id,
-      color_id,
-      processor_id,
-      storage_id,
-      option_id,
-      price
-    );
+    const newAd = await adsController.postAd(request.body);
 
     await response.status(201).json({ status: 'created', newAd });
   } catch (error) {
-    await response.status(400).json({ status: 'fail' });
+    await response.status(400).json({ status: 'fail', err: `${error}` });
   }
 });
 

@@ -49,6 +49,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Storage.associate = models => {
+    Storage.hasMany(models.Ad, { foreignKey: 'storage_id' });
+
     Storage.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {

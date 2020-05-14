@@ -70,6 +70,7 @@ module.exports = (sequelize, DataTypes) => {
         name: 'color_id'
       }
     });
+    Color.hasMany(models.Ad, { foreignKey: 'color_id' });
   };
 
   return Color;

@@ -1,4 +1,4 @@
-const { families } = require('../seeds/202003132119-data-families--iphone.js');
+const { families } = require('../seeds/20200313211911-data-families--iphone.js');
 
 module.exports = {
   up: async queryInterface => {

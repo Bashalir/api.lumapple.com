@@ -1,5 +1,6 @@
+/* eslint-disable */
 // eslint-disable-next-line node/no-unpublished-require
-const { expect } = require('chai');
+// const { expect } = require('chai');
 
 // eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
@@ -18,8 +19,9 @@ describe('Routes :: ads.js', () => {
     const adData = {
       family_id: familyId,
       color_id: colorId,
-      processor_id: processorId,
       storage_id: storageId,
+      screen_state_id: optionId,
+      hull_state_id: optionId,
       option_id: optionId,
       price: 299
     };

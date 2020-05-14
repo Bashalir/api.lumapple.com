@@ -25,18 +25,12 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
 
-      // screenSize
-
       displaySize: {
         field: 'display_size',
         type: DataTypes.FLOAT,
         allowNull: false
       },
-      categoryId: {
-        field: 'category_id',
-        type: DataTypes.UUID,
-        allowNull: false
-      },
+
       createdAt: {
         field: 'created_at',
         allowNull: false,
@@ -62,6 +56,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Family.associate = models => {
+    Family.hasMany(models.Ad, { foreignKey: 'family_id' });
+
     Family.belongsToMany(models.Color, {
       as: 'colors',
       through: 'families_colors',

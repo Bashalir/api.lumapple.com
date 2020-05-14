@@ -14,11 +14,12 @@
     "test:unit": "nyc mocha ./src/**/*.spec.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "migrate:reset": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint && npm run test"
+      "pre-push": "npm run lint"
     }
   },
   "devDependencies": {

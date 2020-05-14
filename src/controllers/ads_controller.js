@@ -1,22 +1,17 @@
+const uuid = require('uuid/v4');
+
 const { Ad } = require('../models');
 
 const adsController = {
   postAd: async adData => {
     try {
       // eslint-disable-next-line camelcase
-      const { family_id, color_id, processor_id, storage_id, option_id, price } = adData;
 
-      const newAd = await Ad.create({
-        family_id,
-        color_id,
-        processor_id,
-        storage_id,
-        option_id,
-        price
-      });
+      const newAd = await Ad.create(adData);
       return newAd;
     } catch (e) {
-      throw new Error("Erreur can't post", e);
+      console.log(e);
+      throw new Error(e);
     }
   },
 
@@ -25,7 +20,7 @@ const adsController = {
       const adToDelete = await Ad.findByPk(adId);
       return adToDelete.destroy;
     } catch (e) {
-      throw new Error("Erreur can't delete", e);
+      throw new Error("Erreur can't delete :", e);
     }
   }
 };

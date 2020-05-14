@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    Option.hasMany(models.Ad, { foreignKey: 'option_id' });
   };
 
   return Option;

@@ -64,6 +64,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    Processor.hasMany(models.Ad, { foreignKey: 'processor_id' });
+ 
   };
 
   return Processor;

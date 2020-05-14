@@ -1,4 +1,4 @@
-const { storages } = require('../seeds/202003150019-data-storages--iphone');
+const { storages } = require('../seeds/20200315001902-data-storages--iphone');
 
 module.exports = {
   up: async queryInterface => {

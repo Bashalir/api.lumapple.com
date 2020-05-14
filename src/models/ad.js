@@ -12,35 +12,6 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true
         }
       },
-      familyId: {
-        field: 'family_id',
-        type: DataTypes.UUID,
-        allowNull: false
-      },
-      colorId: {
-        field: 'color_id',
-        type: DataTypes.UUID,
-        allowNull: true
-      },
-
-      processorId: {
-        field: 'processor_id',
-        type: DataTypes.UUID,
-        allowNull: true
-      },
-
-      storageId: {
-        field: 'storage_id',
-        type: DataTypes.UUID,
-        allowNull: true
-      },
-
-      optionId: {
-        field: 'option_id',
-        type: DataTypes.UUID,
-        allowNull: true
-      },
-
       price: {
         type: DataTypes.INTEGER,
         validate: {
@@ -57,6 +28,41 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: {
         name: 'family_id',
         allowNull: false
+      }
+    });
+    Ad.belongsTo(models.Storage, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        name: 'storage_id',
+        allowNull: true
+      }
+    });
+    Ad.belongsTo(models.Color, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        name: 'color_id',
+        allowNull: true
+      }
+    });
+    Ad.belongsTo(models.ScreenState, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        name: 'screen_state_id',
+        allowNull: true
+      }
+    });
+    Ad.belongsTo(models.HullState, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        name: 'hull_state_id',
+        allowNull: true
+      }
+    });
+    Ad.belongsTo(models.Option, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        name: 'option_id',
+        allowNull: true
       }
     });
   };

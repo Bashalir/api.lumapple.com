@@ -9,24 +9,28 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4
       },
       ref: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(30)
       },
       name_en: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(30)
       },
       name_fr: {
-        type: Sequelize.STRING(10)
+        type: Sequelize.STRING(30)
       },
       order: {
         type: Sequelize.INTEGER
       },
       createdAt: {
+        field: 'created_at',
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updatedAt: {
+        field: 'updated_at',
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     }),
   // eslint-disable-next-line no-unused-vars

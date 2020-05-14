@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable node/no-unpublished-require */
 const { expect } = require('chai');
@@ -16,7 +17,8 @@ describe('Controllers :: adsController', () => {
       const colorId = uuid();
       const processorId = uuid();
       const storageId = uuid();
-      const optionId = uuid();
+      const hullStateId = uuid();
+      const screenStateId = uuid();
       const adId = uuid();
 
       const adData = {
@@ -24,7 +26,8 @@ describe('Controllers :: adsController', () => {
         color_id: colorId,
         processor_id: processorId,
         storage_id: storageId,
-        option_id: optionId,
+        hull_state_id: hullStateId,
+        screen_state_id: screenStateId,
         price: 299
       };
 

@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Hull = sequelize.define(
-    'Hull',
+  const HullState = sequelize.define(
+    'HullState',
     {
       id: {
         allowNull: false,
@@ -63,7 +63,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Hull.associate = models => {};
+  HullState.associate = models => {
+    HullState.hasMany(models.Ad, { foreignKey: 'hull_states_id' });
+  };
 
-  return Hull;
+  return HullState;
 };

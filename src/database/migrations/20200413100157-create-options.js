@@ -1,37 +1,36 @@
 /* eslint-disable no-unused-vars */
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('screen_states', {
+    queryInterface.createTable('options', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
-      ref: {
+      option: {
+        allowNull: false,
         type: Sequelize.STRING(30)
       },
-      name_en: {
-        type: Sequelize.STRING(30)
+      category_id: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'categories',
+          key: 'id'
+        }
       },
-      name_fr: {
-        type: Sequelize.STRING(30)
-      },
-      order: {
-        type: Sequelize.INTEGER
-      },
-      createdAt: {
-        field: 'created_at',
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
       },
-      updatedAt: {
-        field: 'updated_at',
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
       }
     }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('screen_states')
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('options')
 };
