@@ -50,15 +50,17 @@ module.exports = {
         }
       },
       tel: {
-        type: Sequelize.INTEGER,
+        allowNull: true,
+        type: Sequelize.STRING,
         validate: {
-          len: [10]
+          len: [10, 13]
         }
       },
       photo_url: {
-        type: Sequelize.INTEGER,
+        allowNull: true,
+        type: Sequelize.STRING,
         validate: {
-          len: [10]
+          len: [1, 100]
         }
       },
       created_at: {

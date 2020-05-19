@@ -26,42 +26,48 @@ module.exports = (sequelize, DataTypes) => {
     Ad.belongsTo(models.Family, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'family_id',
+        name: 'familyId',
+        field: 'family_id',
         allowNull: false
       }
     });
     Ad.belongsTo(models.Storage, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'storage_id',
+        name: 'storageId',
+        field: 'storage_id',
         allowNull: true
       }
     });
     Ad.belongsTo(models.Color, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'color_id',
+        name: 'colorId',
+        field: 'color_id',
         allowNull: true
       }
     });
     Ad.belongsTo(models.ScreenState, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'screen_state_id',
+        name: 'screenStateId',
+        field: 'screen_state_id',
         allowNull: false
       }
     });
     Ad.belongsTo(models.HullState, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'hull_state_id',
+        name: 'hullStateId',
+        field: 'hull_state_id',
         allowNull: false
       }
     });
     Ad.belongsTo(models.Option, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'option_id',
+        name: 'optionId',
+        field: 'option_id',
         allowNull: true
       }
     });

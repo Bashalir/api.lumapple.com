@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       providerId: {
         field: 'provider_id',
+        allowNull: false,
         type: DataTypes.STRING,
         validate: {
           len: [1, 50]
@@ -21,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       firebaseId: {
         field: 'firebase_id',
+        allowNull: false,
         type: DataTypes.STRING,
         validate: {
           len: [1, 50]
@@ -28,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       displayName: {
         field: 'display_name',
+        allowNull: false,
         type: DataTypes.STRING,
         validate: {
           len: [1, 50]
@@ -35,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       firstName: {
         field: 'first_name',
+        allowNull: false,
         type: DataTypes.STRING,
         validate: {
           len: [1, 50]
@@ -42,21 +46,31 @@ module.exports = (sequelize, DataTypes) => {
       },
       lastName: {
         field: 'last_name',
+        allowNull: false,
         type: DataTypes.STRING,
         validate: {
           len: [1, 50]
         }
       },
       mail: {
+        allowNull: false,
         type: DataTypes.STRING,
         validate: {
           len: [1, 50]
         }
       },
       tel: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         validate: {
-          len: [10]
+          len: [10, 13]
+        }
+      },
+      photoUrl: {
+        field: 'photo_url',
+        allowNull: true,
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 100]
         }
       },
 

@@ -4,7 +4,7 @@ const router = express.Router();
 const adsController = require('../controllers/ads_controller');
 const verifyToken = require('../middlewares/verify_token');
 
-router.use('*', verifyToken);
+// router.use('*', verifyToken);
 router.post('/', async (request, response) => {
   // eslint-disable-next-line camelcase
 

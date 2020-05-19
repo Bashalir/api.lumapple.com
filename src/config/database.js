@@ -8,7 +8,6 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'postgres',
     define: {
-      familyId: 'family_id',
       createdAt: 'created_at',
       updatedAt: 'updated_at'
     },
@@ -21,7 +20,6 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'postgres',
     define: {
-      familyId: 'family_id',
       createdAt: 'created_at',
       updatedAt: 'updated_at'
     },
@@ -33,7 +31,6 @@ module.exports = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     define: {
-      familyId: 'family_id',
       createdAt: 'created_at',
       updatedAt: 'updated_at'
     },

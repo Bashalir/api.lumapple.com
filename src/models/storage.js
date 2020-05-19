@@ -19,11 +19,7 @@ module.exports = (sequelize, DataTypes) => {
           max: 10000
         }
       },
-      categoryId: {
-        field: 'category_id',
-        type: DataTypes.UUID,
-        allowNull: false
-      },
+
       createdAt: {
         field: 'created_at',
         allowNull: false,
@@ -54,7 +50,8 @@ module.exports = (sequelize, DataTypes) => {
     Storage.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'category_id',
+        name: 'categoryId',
+        field: 'category_id',
         allowNull: false
       }
     });
@@ -62,7 +59,8 @@ module.exports = (sequelize, DataTypes) => {
       as: 'families',
       through: 'families_storages',
       foreignKey: {
-        name: 'storage_id'
+        name: 'storageId',
+        field: 'storage_id'
       }
     });
   };

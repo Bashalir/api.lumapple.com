@@ -5,7 +5,7 @@ const storagesController = {
     // console.log(query);
 
     const storageList = await Storage.findAll({
-      attributes: ['capacity'],
+      attributes: ['capacity', 'id'],
       raw: true,
       include: [
         {
@@ -16,12 +16,12 @@ const storagesController = {
         }
       ]
     });
-    // console.log('storageList', storageList);
+    console.log('storageList', storageList);
     return storagesController.arrayObjectToArray(storageList);
   },
 
   arrayObjectToArray: async array => {
-    const flat = array.map(x => x.capacity);
+    const flat = array.map(x => ({ id: x.id, capacity: x.capacity }));
     return flat;
   }
 };
