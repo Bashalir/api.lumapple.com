@@ -48,14 +48,14 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'screen_state_id',
-        allowNull: true
+        allowNull: false
       }
     });
     Ad.belongsTo(models.HullState, {
       onDelete: 'CASCADE',
       foreignKey: {
         name: 'hull_state_id',
-        allowNull: true
+        allowNull: false
       }
     });
     Ad.belongsTo(models.Option, {

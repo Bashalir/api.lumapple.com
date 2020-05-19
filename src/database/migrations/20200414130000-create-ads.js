@@ -8,7 +8,7 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4
       },
       family_id: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         references: {
@@ -35,7 +35,7 @@ module.exports = {
         }
       },
       screen_state_id: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         references: {
@@ -44,7 +44,7 @@ module.exports = {
         }
       },
       hull_state_id: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         references: {

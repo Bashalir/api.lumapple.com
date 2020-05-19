@@ -14,6 +14,7 @@ coverage
 # Key
 .localhost-key.pem
 .localhost.pem
+firebase-admin.json
 
 # docker
 Dockerfile

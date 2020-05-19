@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Processor = sequelize.define(
-    'Processor',
+  const User = sequelize.define(
+    'User',
     {
       id: {
         allowNull: false,
@@ -12,26 +12,54 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true
         }
       },
-      type: {
+      providerId: {
+        field: 'provider_id',
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30]
+          len: [1, 50]
         }
       },
-      speed: {
+      firebaseId: {
+        field: 'firebase_id',
         type: DataTypes.STRING,
         validate: {
-          len: [1, 30]
+          len: [1, 50]
         }
       },
-      cores: {
-        type: DataTypes.INTEGER
+      displayName: {
+        field: 'display_name',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 50]
+        }
       },
-      categoryId: {
-        field: 'category_id',
-        type: DataTypes.UUID,
-        allowNull: false
+      firstName: {
+        field: 'first_name',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 50]
+        }
       },
+      lastName: {
+        field: 'last_name',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 50]
+        }
+      },
+      mail: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 50]
+        }
+      },
+      tel: {
+        type: DataTypes.INTEGER,
+        validate: {
+          len: [10]
+        }
+      },
+
       createdAt: {
         field: 'created_at',
         allowNull: false,
@@ -52,20 +80,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
-      tableName: 'processors'
+      tableName: 'users'
     }
   );
 
-  Processor.associate = models => {
-    Processor.belongsTo(models.Category, {
-      onDelete: 'CASCADE',
-      foreignKey: {
-        name: 'category_id',
-        allowNull: false
-      }
-    });
-    Processor.hasMany(models.Ad, { foreignKey: 'processor_id' });
-  };
-
-  return Processor;
+  return User;
 };

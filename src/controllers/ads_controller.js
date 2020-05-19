@@ -1,5 +1,3 @@
-const uuid = require('uuid/v4');
-
 const { Ad } = require('../models');
 
 const adsController = {
