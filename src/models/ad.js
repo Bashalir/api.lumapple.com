@@ -23,6 +23,17 @@ module.exports = (sequelize, DataTypes) => {
     { tableName: 'ads' }
   );
   Ad.associate = models => {
+    Ad.hasMany(models.PhotoAD, { foreignKey: 'ad_id' });
+
+    Ad.belongsTo(models.User, {
+      onDelete: 'CASCADE',
+      foreignKey: {
+        name: 'userId',
+        field: 'user_id',
+        allowNull: false
+      }
+    });
+
     Ad.belongsTo(models.Family, {
       onDelete: 'CASCADE',
       foreignKey: {

@@ -1,11 +1,20 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Ads', {
+    queryInterface.createTable('ads', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
+      },
+      user_id: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       family_id: {
         allowNull: false,
@@ -77,5 +86,5 @@ module.exports = {
       }
     }),
   // eslint-disable-next-line no-unused-vars
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Ads')
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('ads')
 };

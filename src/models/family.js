@@ -62,7 +62,8 @@ module.exports = (sequelize, DataTypes) => {
       as: 'colors',
       through: 'families_colors',
       foreignKey: {
-        name: 'family_id'
+        name: 'familyId',
+        field: 'family_id'
       }
     });
 
@@ -70,7 +71,8 @@ module.exports = (sequelize, DataTypes) => {
       as: 'storages',
       through: 'families_storages',
       foreignKey: {
-        name: 'family_id'
+        name: 'familyId',
+        field: 'family_id'
       }
     });
 

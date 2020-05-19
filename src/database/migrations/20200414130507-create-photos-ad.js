@@ -1,33 +1,33 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Photos', {
+    queryInterface.createTable('photos_ad', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      reference: {
+      ad_id: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        references: {
+          model: 'ads',
+          key: 'id'
+        }
+      },
+      photo_url: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.STRING
-      },
-      url: {
-        type: Sequelize.STRING
-      },
-      category_photo_id: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     }),
   // eslint-disable-next-line no-unused-vars
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('Photos')
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('photos_ad')
 };

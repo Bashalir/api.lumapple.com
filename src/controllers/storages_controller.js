@@ -16,7 +16,7 @@ const storagesController = {
         }
       ]
     });
-    console.log('storageList', storageList);
+    // console.log('storageList', storageList);
     return storagesController.arrayObjectToArray(storageList);
   },
 

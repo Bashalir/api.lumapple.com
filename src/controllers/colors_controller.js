@@ -3,7 +3,7 @@ const { Color, Family } = require('../models');
 const colorsController = {
   filter: async query => {
     const colorList = await Color.findAll({
-      attributes: ['ref', 'name_fr', 'rgb'],
+      attributes: ['id', 'ref', 'name_fr', 'rgb'],
       order: [['name_fr', 'ASC']],
       through: { attributes: [] },
       required: false,
