@@ -3,9 +3,9 @@ const { PhotoAD } = require('../models');
 const adsPhotosController = {
   allPhotosByAdId: async adId => {
     const photoList = await PhotoAD.findAll({
-      where: { ad_id: adId },
+      where: { ad_id: adId.ad_id },
       attributes: ['photo_url'],
-      order: [['photo_url', 'ASC']],
+      order: [['created_at', 'ASC']],
       through: { attributes: [] }
     });
 

@@ -3,9 +3,9 @@ module.exports = {
     queryInterface.createTable('photos_ad', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       ad_id: {
         allowNull: false,
