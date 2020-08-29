@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 const adsController = require('../controllers/ads_controller');
-// const verifyToken = require('../middlewares/verify_token');
+const { decodeFirebaseIdToken } = require('../middlewares/firebase_auth_middleware');
 
 // router.use('*', verifyToken);
-router.post('/', async (request, response) => {
+router.post('/', decodeFirebaseIdToken, async (request, response) => {
   // eslint-disable-next-line camelcase
 
   try {
