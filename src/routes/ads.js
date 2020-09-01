@@ -5,12 +5,11 @@ const adsController = require('../controllers/ads_controller');
 const { decodeFirebaseIdToken } = require('../middlewares/firebase_auth_middleware');
 
 // router.use('*', verifyToken);
-router.post('/', decodeFirebaseIdToken, async (request, response) => {
+router.post('/', async (request, response) => {
   // eslint-disable-next-line camelcase
 
   try {
-    console.log('body');
-    console.log(request.body.photoAd);
+    console.log(request.body);
 
     const newAd = await adsController.postAd(request.body);
 

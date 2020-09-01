@@ -4,16 +4,6 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const admin = require('firebase-admin');
-
-// eslint-disable-next-line node/no-unpublished-require
-const serviceAccount = require('../firebase-admin.json');
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://lumapple-25e9f.firebaseio.com'
-});
-
 // const { notFoundHandler, errorLogger, errorHandler } = require('./middlewares');
 const routes = require('./routes');
 // const { cloudinaryConfig } = require('./config/cloudinary');

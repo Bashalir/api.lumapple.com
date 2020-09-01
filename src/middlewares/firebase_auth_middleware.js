@@ -1,5 +1,6 @@
 // Import Firebase Admin initialized instance to middleware
-const firebase = require('../config/firebase.js');
+const admin = require('../config/firebase.js');
+const UnauthorizedError = require('../helpers/errors/401_unauthorized');
 
 // const roleRanks = {
 //   superAdmin: 1,
@@ -8,7 +9,7 @@ const firebase = require('../config/firebase.js');
 // };
 
 const firebaseAuthMiddleware = {
-  decodeFirebaseIdToken: async (req, res, next) => {
+  decodeFirebaseIdToken: (req, res, next) => {
     if (!req.headers.id_token) {
       return res.status(400).json({
         error: {
@@ -17,20 +18,25 @@ const firebaseAuthMiddleware = {
       });
     }
 
-    try {
-      // Use firebase-admin auth to verify the token passed in from the client header.
-      // This is token is generated from the firebase client
-      // Decoding this token returns the userpayload and all the other token claims you added while creating the custom token
-      const userPayload = await firebase.auth().verifyIdToken(req.headers.id_token);
+    // Use firebase-admin auth to verify the token passed in from the client header.
+    // This is token is generated from the firebase client
+    // Decoding this token returns the userpayload and all the other token claims you added while creating the custom token
+    const idToken = req.headers.id_token;
 
-      req.user = userPayload;
-
-      return next();
-    } catch (error) {
-      return res.status(500).json({
-        error
+    // idToken comes from the client app
+    admin
+      .auth()
+      .verifyIdToken(idToken)
+      .then(function(decodedToken) {
+        if (decodedToken) {
+          req.body.user = decodedToken;
+          return next();
+        }
+        return next();
+      })
+      .catch(function(error) {
+        return res.status(500).json({ error });
       });
-    }
   },
   // Checks if a user is authenticated from firebase admin
   isAuthorized: async (req, res, next) => {

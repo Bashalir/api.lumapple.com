@@ -1,9 +1,11 @@
 require('dotenv').config();
-const firebase = require('firebase-admin');
+const admin = require('firebase-admin');
 // eslint-disable-next-line node/no-unpublished-require
 const serviceAccount = require('../../firebase-admin.json');
 
-firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
   databaseURL: process.env.FIREBASE_DATABASE_URL
 });
+
+module.exports = admin;
