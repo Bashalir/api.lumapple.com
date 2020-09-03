@@ -7,7 +7,7 @@ const dateNow = moment()
 
 const hullStates = [
   {
-    id: uuid(),
+    id: 1,
     ref: 'mint',
     name_en: 'Mint',
     name_fr: 'Intact',
@@ -16,7 +16,7 @@ const hullStates = [
     updated_at: dateNow
   },
   {
-    id: uuid(),
+    id: 2,
     ref: 'light_scratches',
     name_en: 'Light scratches',
     name_fr: 'Micro-rayures',
@@ -25,7 +25,7 @@ const hullStates = [
     updated_at: dateNow
   },
   {
-    id: uuid(),
+    id: 3,
     ref: 'scratches',
     name_en: 'Scratches',
     name_fr: 'Rayures',
@@ -34,7 +34,7 @@ const hullStates = [
     updated_at: dateNow
   },
   {
-    id: uuid(),
+    id: 4,
     ref: 'broken',
     name_en: 'Broken',
     name_fr: 'Cassé',

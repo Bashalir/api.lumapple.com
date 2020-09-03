@@ -10,6 +10,7 @@ const colorsController = {
       include: [
         {
           model: Family,
+          as: 'families',
           where: query,
           attributes: [],
           through: { attributes: [] }

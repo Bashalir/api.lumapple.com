@@ -7,7 +7,7 @@ router.get('/', async (request, response) => {
   const { query } = request;
   const storagesFilteredList = await colorsController.filter(query);
 
-  await response.status(200).json(storagesFilteredList);
+  response.status(200).json(storagesFilteredList);
 });
 
 module.exports = router;

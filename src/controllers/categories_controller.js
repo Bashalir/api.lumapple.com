@@ -11,6 +11,17 @@ const categoriesController = {
     } catch (e) {
       throw new Error('erreur', e);
     }
+  },
+
+  allCategories: async () => {
+    try {
+      const categories = await Category.findAll({
+        attributes: ['id', 'ref', 'type']
+      });
+      return categories;
+    } catch (e) {
+      throw new Error('erreur', e);
+    }
   }
 };
 

@@ -45,8 +45,8 @@ module.exports = {
       },
       screen_state_id: {
         allowNull: false,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.INTEGER,
+        defaultValue: Sequelize.INTEGER,
         references: {
           model: 'screen_states',
           key: 'id'
@@ -54,8 +54,8 @@ module.exports = {
       },
       hull_state_id: {
         allowNull: false,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.INTEGER,
+        defaultValue: Sequelize.INTEGER,
         references: {
           model: 'hull_states',
           key: 'id'

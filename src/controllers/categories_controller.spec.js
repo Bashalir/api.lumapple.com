@@ -53,4 +53,29 @@ describe('Controllers :: categoriesController', () => {
       expect(iphoneUUID).to.be.a('null');
     });
   });
+
+  describe('#allCategories', () => {
+    it('should return the object of all categories" ', async () => {
+      // Given
+      const id = uuid();
+
+      const createReturnObject = {
+        id
+      };
+
+      const expectedObject = {
+        id
+      };
+
+      const createStub = sinon.stub(Category, 'findAll').returns(createReturnObject);
+
+      // When
+      const createdObject = await categoriesController.allCategories();
+
+      // Then
+      expect(createStub.calledOnce).to.be.true;
+      expect(createdObject).to.deep.equal(expectedObject);
+      createStub.restore();
+    });
+  });
 });

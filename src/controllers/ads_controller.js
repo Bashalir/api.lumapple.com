@@ -1,14 +1,22 @@
-const { Ad } = require('../models');
+const { Ad, User } = require('../models');
 
 const adsController = {
   postAd: async adData => {
     try {
       // eslint-disable-next-line camelcase
 
-      const newAd = await Ad.create(adData);
+      const userId = await User.findAll({
+        limit: 1,
+        attributes: ['id'],
+        raw: true,
+        where: { firebase_id: adData.firebaseId }
+      });
+
+      const ad = { ...adData, userId: userId[0].id };
+      console.debug(userId[0].id);
+      const newAd = await Ad.create(ad);
       return newAd;
     } catch (e) {
-      console.log(e);
       throw new Error(e);
     }
   },

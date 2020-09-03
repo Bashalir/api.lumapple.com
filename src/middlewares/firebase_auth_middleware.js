@@ -1,27 +1,17 @@
 // Import Firebase Admin initialized instance to middleware
 const admin = require('../config/firebase.js');
-const UnauthorizedError = require('../helpers/errors/401_unauthorized');
-
-// const roleRanks = {
-//   superAdmin: 1,
-//   admin: 2,
-//   user: 3
-// };
 
 const firebaseAuthMiddleware = {
   decodeFirebaseIdToken: (req, res, next) => {
-    if (!req.headers.id_token) {
+    const idToken = req.headers.authorization;
+
+    if (!idToken) {
       return res.status(400).json({
         error: {
-          message: 'You did not specify any idToken for this request'
+          message: "Vous n'etes pas identifié."
         }
       });
     }
-
-    // Use firebase-admin auth to verify the token passed in from the client header.
-    // This is token is generated from the firebase client
-    // Decoding this token returns the userpayload and all the other token claims you added while creating the custom token
-    const idToken = req.headers.id_token;
 
     // idToken comes from the client app
     admin
@@ -29,7 +19,7 @@ const firebaseAuthMiddleware = {
       .verifyIdToken(idToken)
       .then(function(decodedToken) {
         if (decodedToken) {
-          req.body.user = decodedToken;
+          req.body.firebaseId = decodedToken.user_id;
           return next();
         }
         return next();

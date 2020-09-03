@@ -8,6 +8,7 @@ const colors = require('./colors');
 const ads = require('./ads');
 const users = require('./users');
 const photosAd = require('./photos_ad');
+const categories = require('./categories');
 
 router.use('/admin', adminRouter);
 router.use('/storages', storages);
@@ -16,6 +17,7 @@ router.use('/colors', colors);
 router.use('/ads', ads);
 router.use('/users', users);
 router.use('/photosad', photosAd);
+router.use('/categories', categories);
 
 router.use('*', (request, response) => {
   response.status(404);

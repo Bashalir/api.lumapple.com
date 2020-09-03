@@ -7,9 +7,9 @@ router.get('/', async (request, response) => {
   // console.log(request.query);
   const { query } = request;
   const familiesFilteredList = await familiesController.filter(query);
-  // console.log('retour', familiesFilteredList);
+  //  console.log('retour', familiesFilteredList);
 
-  await response.status(200).json(familiesFilteredList);
+  response.status(200).json(familiesFilteredList);
 });
 
 module.exports = router;
