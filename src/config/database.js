@@ -27,6 +27,7 @@ module.exports = {
   },
   production: {
     url: process.env.DATABASE_URL,
+    quoteIdentifiers: false,
     define: {
       createdAt: 'created_at',
       updatedAt: 'updated_at'
