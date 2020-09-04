@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   ScreenState.associate = models => {
-    ScreenState.hasMany(models.Ad, { foreignKey: 'screen_states_id' });
+    ScreenState.hasMany(models.Ad, { foreignKey: 'screen_state_id' });
   };
   return ScreenState;
 };

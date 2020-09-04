@@ -59,11 +59,9 @@ module.exports = (sequelize, DataTypes) => {
     Family.hasMany(models.Ad, { foreignKey: 'family_id' });
 
     Family.belongsToMany(models.Color, {
-      as: 'colors',
       through: 'families_colors',
       foreignKey: {
-        name: 'family_id',
-        field: 'family_id'
+        name: 'family_id'
       }
     });
 
@@ -79,7 +77,7 @@ module.exports = (sequelize, DataTypes) => {
     Family.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'categoryId',
+        name: 'category_id',
         field: 'category_id',
         allowNull: false
       }

@@ -50,8 +50,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Category.associate = models => {
     Category.hasMany(models.Family, { foreignKey: 'category_id' });
-    Category.hasMany(models.Color, { foreignKey: 'category_id' });
-    Category.hasMany(models.Processor, { foreignKey: 'category_id' });
     Category.hasMany(models.Storage, { foreignKey: 'category_id' });
   };
 

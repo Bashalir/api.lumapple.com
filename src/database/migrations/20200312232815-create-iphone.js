@@ -50,15 +50,7 @@ module.exports = {
           key: 'id'
         }
       },
-      processor_id: {
-        allowNull: false,
-        type: Sequelize.UUID,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'processors',
-          key: 'id'
-        }
-      },
+
       storage_id: {
         allowNull: false,
         type: Sequelize.UUID,

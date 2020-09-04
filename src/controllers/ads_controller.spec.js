@@ -15,7 +15,6 @@ describe('Controllers :: adsController', () => {
       // Given
       const familyId = uuid();
       const colorId = uuid();
-      const processorId = uuid();
       const storageId = uuid();
       const hullStateId = uuid();
       const screenStateId = uuid();
@@ -24,7 +23,6 @@ describe('Controllers :: adsController', () => {
       const adData = {
         family_id: familyId,
         color_id: colorId,
-        processor_id: processorId,
         storage_id: storageId,
         hull_state_id: hullStateId,
         screen_state_id: screenStateId,

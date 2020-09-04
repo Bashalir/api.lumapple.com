@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 const adsController = require('../controllers/ads_controller');
-const admin = require('../config/firebase.js');
 const { decodeFirebaseIdToken } = require('../middlewares/firebase_auth_middleware');
 
 // router.use('*', verifyToken);
@@ -14,6 +13,29 @@ router.post('/', decodeFirebaseIdToken, async (request, response) => {
 
     // await response.status(201).json({ status: request });
     await response.status(201).json({ status: 'created', newAd });
+  } catch (error) {
+    response.status(400).json({ status: 'fail', err: `${error}` });
+  }
+});
+
+router.get('/:adId', async (request, response) => {
+  // console.log(request.query);
+  try {
+    const id = request.url.substring(1, request.url.length);
+    const ad = await adsController.getAd(id);
+    response.status(200).json(ad);
+  } catch (error) {
+    response.status(400).json({ status: 'fail', err: `${error}` });
+  }
+});
+
+router.get('/', async (request, response) => {
+  // console.log(request.query);
+  try {
+    const { query } = request;
+    const ad = await adsController.getAdAll(query);
+
+    await response.status(200).json(ad);
   } catch (error) {
     response.status(400).json({ status: 'fail', err: `${error}` });
   }

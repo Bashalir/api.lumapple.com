@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   HullState.associate = models => {
-    HullState.hasMany(models.Ad, { foreignKey: 'hull_states_id' });
+    HullState.hasMany(models.Ad, { foreignKey: 'hull_state_id' });
   };
 
   return HullState;
