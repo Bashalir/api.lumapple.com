@@ -6,6 +6,7 @@ const { Op } = Sequelize;
 const adsController = {
   findAd: async ({ text }) => {
     const wordsOfText = text ? text.split(' ') : [''];
+    const wordsFind = wordsOfText.map(word => `%${word}%`);
 
     try {
       const ads = await Ad.findAndCountAll({
@@ -42,20 +43,20 @@ const adsController = {
             capacity: Sequelize.where(
               Sequelize.cast(Sequelize.col('Storage.capacity'), 'varchar'),
               {
-                [Op.iLike]: { [Op.any]: wordsOfText }
+                [Op.iLike]: wordsFind.length > 1 ? { [Op.any]: wordsFind } : `%${text}%`
               }
             ),
             type: Sequelize.where(Sequelize.col('Family.type'), {
-              [Op.iLike]: { [Op.any]: wordsOfText }
+              [Op.iLike]: wordsFind.length > 1 ? { [Op.any]: [wordsFind] } : `%${text}%`
             }),
             nameColor: Sequelize.where(Sequelize.col('Color.name_fr'), {
-              [Op.iLike]: { [Op.any]: wordsOfText }
+              [Op.iLike]: wordsFind.length > 1 ? { [Op.any]: wordsFind } : `%${text}%`
             }),
             nameHullState: Sequelize.where(Sequelize.col('HullState.name_fr'), {
-              [Op.iLike]: { [Op.any]: wordsOfText }
+              [Op.iLike]: wordsFind.length > 1 ? { [Op.any]: wordsFind } : `%${text}%`
             }),
             nameScreenState: Sequelize.where(Sequelize.col('ScreenState.name_fr'), {
-              [Op.iLike]: { [Op.any]: wordsOfText }
+              [Op.iLike]: wordsFind.length > 1 ? { [Op.any]: wordsFind } : `%${text}%`
             })
           }
         }
