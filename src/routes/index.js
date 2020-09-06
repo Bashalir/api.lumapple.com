@@ -1,7 +1,6 @@
 const express = require('express');
 
 const router = express.Router();
-const adminRouter = require('./admin_router');
 const storages = require('./storages');
 const families = require('./families');
 const colors = require('./colors');
@@ -10,7 +9,6 @@ const users = require('./users');
 const photosAd = require('./photos_ad');
 const categories = require('./categories');
 
-router.use('/admin', adminRouter);
 router.use('/storages', storages);
 router.use('/families', families);
 router.use('/colors', colors);

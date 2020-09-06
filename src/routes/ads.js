@@ -7,7 +7,7 @@ const { decodeFirebaseIdToken } = require('../middlewares/firebase_auth_middlewa
 // router.use('*', verifyToken);
 router.post('/', decodeFirebaseIdToken, async (request, response) => {
   // eslint-disable-next-line camelcase
-
+  console.log(request.body);
   try {
     const newAd = await adsController.postAd(request.body);
 
@@ -19,11 +19,9 @@ router.post('/', decodeFirebaseIdToken, async (request, response) => {
 });
 
 router.get('/find', async (request, response) => {
-  // console.log(request.query);
   try {
     const text = request.query;
     const ads = await adsController.findAd(text);
-    console.log(request.query);
 
     response.status(200).json(ads);
   } catch (error) {

@@ -19,13 +19,14 @@ const firebaseAuthMiddleware = {
       .verifyIdToken(idToken)
       .then(function(decodedToken) {
         if (decodedToken) {
-          req.body.firebaseId = decodedToken.user_id;
+          req.body.data.firebaseId = decodedToken.user_id;
           return next();
         }
         return next();
       })
       .catch(function(error) {
-        return res.status(500).json({ error });
+        console.log(error);
+        return res.status(401).json({ err: "Vous n'etes pas autorisé." });
       });
   },
   // Checks if a user is authenticated from firebase admin

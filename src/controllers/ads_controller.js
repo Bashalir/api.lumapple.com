@@ -125,12 +125,18 @@ const adsController = {
 
       const userId = await User.findAll({
         limit: 1,
-        attributes: ['id'],
+        attributes: ['id', 'mail'],
         raw: true,
-        where: { firebase_id: adData.firebaseId }
+        where: { firebase_id: adData.data.firebaseId }
       });
 
-      const newAd = { ...adData, userId: userId[0].id };
+      const newAd = {
+        ...adData.data,
+        userId: userId[0].id,
+        mail: userId[0].mail,
+        firebaseId: adData.data.firebaseId
+      };
+
       const ad = await Ad.create(newAd);
       return ad;
     } catch (e) {

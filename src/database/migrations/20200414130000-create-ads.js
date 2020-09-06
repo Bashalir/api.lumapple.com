@@ -7,6 +7,13 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
+      mail: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        validate: {
+          len: [1, 50]
+        }
+      },
       user_id: {
         allowNull: false,
         type: Sequelize.UUID,

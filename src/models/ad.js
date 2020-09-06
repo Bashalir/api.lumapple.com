@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true
         }
       },
+      mail: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 50]
+        }
+      },
       price: {
         type: DataTypes.INTEGER,
         validate: {

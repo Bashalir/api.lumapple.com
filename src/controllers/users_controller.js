@@ -4,7 +4,7 @@ const usersController = {
   addUser: async userData => {
     try {
       // eslint-disable-next-line camelcase
-
+      console.log(userData);
       const newUser = await User.create(userData);
       return newUser;
     } catch (e) {

@@ -7,7 +7,7 @@ const uuid = require('uuid/v4');
 
 const adsController = require('./ads_controller');
 
-const { Ad } = require('../models');
+const { Ad, User } = require('../models');
 
 describe('Controllers :: adsController', () => {
   describe('#postAd', () => {
@@ -18,6 +18,7 @@ describe('Controllers :: adsController', () => {
       const storageId = uuid();
       const hullStateId = uuid();
       const screenStateId = uuid();
+      const firebaseId = uuid();
       const adId = uuid();
 
       const adData = {
@@ -39,6 +40,7 @@ describe('Controllers :: adsController', () => {
         ad_id: adId
       };
 
+      const createStubUser = sinon.stub(User, 'findAll').returns(['456646', 'bash@bash.Fr']);
       const createStub = sinon.stub(Ad, 'create').returns(createReturnObject);
 
       // When

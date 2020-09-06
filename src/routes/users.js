@@ -8,11 +8,12 @@ const { decodeFirebaseIdToken } = require('../middlewares/firebase_auth_middlewa
 router.post('/', decodeFirebaseIdToken, async (request, response) => {
   // eslint-disable-next-line camelcase
   try {
+    console.log('request', request);
     const userToAdd = await userController.addUser(request.body.data);
 
     response.status(201).json({ status: 'created', userToAdd });
   } catch (error) {
-    response.status(400).json({ status: 'fail', err: `${request.body}` });
+    response.status(400).json({ status: 'fail', err: `${error}` });
   }
 });
 
