@@ -18,6 +18,19 @@ router.post('/', decodeFirebaseIdToken, async (request, response) => {
   }
 });
 
+router.get('/find', async (request, response) => {
+  // console.log(request.query);
+  try {
+    const text = request.query;
+    const ads = await adsController.findAd(text);
+    console.log(request.query);
+
+    response.status(200).json(ads);
+  } catch (error) {
+    response.status(400).json({ status: 'fail', err: `${error}` });
+  }
+});
+
 router.get('/:adId', async (request, response) => {
   // console.log(request.query);
   try {

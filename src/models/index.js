@@ -21,6 +21,15 @@ fs.readdirSync(__dirname)
     const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+    return true;
+  })
+  .catch(err => {
+    console.log(`Unable to connect to the database:${err}`);
+  });
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
