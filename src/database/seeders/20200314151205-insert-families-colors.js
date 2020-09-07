@@ -4,7 +4,7 @@ const dateNow = moment()
   .utc()
   .toDate();
 
-const { familiesColors } = require('../seeds/20200314154151-data-families-colors--iphone');
+const { familiesColors } = require('../seeds/20200314154151-data-families-colors');
 
 module.exports = {
   up: async queryInterface => {

@@ -4,7 +4,7 @@ const dateNow = moment()
   .utc()
   .toDate();
 
-const { familiesStorages } = require('../seeds/20200315004047-data-families-storages--iphone');
+const { familiesStorages } = require('../seeds/20200315004047-data-families-storages');
 
 module.exports = {
   up: async queryInterface => {
