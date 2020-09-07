@@ -102,7 +102,11 @@ const adsController = {
         order: [['created_at', 'DESC']],
         attributes: ['id', 'price', 'created_at'],
         include: [
-          { model: Family, attributes: ['type', 'ref'], required: true },
+          {
+            model: Family,
+            attributes: ['type', 'ref', 'short_description', 'description', 'specs'],
+            required: true
+          },
           { model: ScreenState, attributes: ['nameFr', 'ref'], required: true },
           { model: HullState, attributes: ['nameFr', 'ref'], required: true },
           { model: Storage, attributes: ['capacity'] },

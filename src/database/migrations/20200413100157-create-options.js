@@ -8,18 +8,17 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
-      option: {
+      ref: {
         allowNull: false,
         type: Sequelize.STRING(30)
       },
-      category_id: {
+      name_en: {
         allowNull: false,
-        type: Sequelize.UUID,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'categories',
-          key: 'id'
-        }
+        type: Sequelize.STRING(30)
+      },
+      name_fr: {
+        allowNull: false,
+        type: Sequelize.STRING(30)
       },
       created_at: {
         allowNull: false,

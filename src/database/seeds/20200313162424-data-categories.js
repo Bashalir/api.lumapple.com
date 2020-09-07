@@ -8,8 +8,8 @@ const dateNow = moment()
 const categories = [
   {
     id: uuid(),
-    ref: 'mac',
-    type: 'Mac',
+    ref: 'imac',
+    type: 'iMac',
     created_at: dateNow,
     updated_at: dateNow
   },

@@ -12,14 +12,25 @@ module.exports = (sequelize, DataTypes) => {
           notNull: true
         }
       },
-      option: {
-        type: DataTypes.STRING
+      ref: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30]
+        }
       },
-
-      categoryId: {
-        field: 'category_id',
-        type: DataTypes.UUID,
-        allowNull: false
+      nameEn: {
+        field: 'name_en',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30]
+        }
+      },
+      nameFr: {
+        field: 'name_fr',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30]
+        }
       },
       createdAt: {
         field: 'created_at',
@@ -46,11 +57,12 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Option.associate = models => {
-    Option.belongsTo(models.Category, {
-      onDelete: 'CASCADE',
+    Option.belongsToMany(models.Family, {
+      as: 'families',
+      through: 'families_options',
       foreignKey: {
-        name: 'category_id',
-        allowNull: false
+        name: 'optionId',
+        field: 'option_id'
       }
     });
     Option.hasMany(models.Ad, { foreignKey: 'option_id' });

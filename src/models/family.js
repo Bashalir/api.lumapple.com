@@ -24,11 +24,26 @@ module.exports = (sequelize, DataTypes) => {
           len: [1, 30]
         }
       },
-
+      shortDescription: {
+        field: 'short_description',
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 30]
+        }
+      },
+      description: {
+        type: DataTypes.STRING,
+        validate: {
+          len: [1, 100]
+        }
+      },
+      specs: {
+        type: DataTypes.ARRAY(DataTypes.TEXT)
+      },
       displaySize: {
         field: 'display_size',
         type: DataTypes.FLOAT,
-        allowNull: false
+        allowNull: true
       },
 
       createdAt: {
@@ -61,7 +76,16 @@ module.exports = (sequelize, DataTypes) => {
     Family.belongsToMany(models.Color, {
       through: 'families_colors',
       foreignKey: {
-        name: 'family_id'
+        name: 'family_id',
+        allowNull: true
+      }
+    });
+
+    Family.belongsToMany(models.Option, {
+      through: 'families_options',
+      foreignKey: {
+        name: 'family_id',
+        allowNull: true
       }
     });
 
@@ -70,7 +94,8 @@ module.exports = (sequelize, DataTypes) => {
       through: 'families_storages',
       foreignKey: {
         name: 'familyId',
-        field: 'family_id'
+        field: 'family_id',
+        allowNull: true
       }
     });
 

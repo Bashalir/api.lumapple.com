@@ -16,8 +16,20 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(30)
       },
+      short_description: {
+        allowNull: true,
+        type: Sequelize.STRING(30)
+      },
+      description: {
+        allowNull: true,
+        type: Sequelize.STRING(100)
+      },
+      specs: {
+        allowNull: true,
+        type: Sequelize.ARRAY(Sequelize.TEXT)
+      },
       display_size: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.FLOAT
       },
       category_id: {
