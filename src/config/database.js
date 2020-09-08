@@ -1,3 +1,5 @@
+const firebaseAuthMiddleware = require('../middlewares/firebase_auth_middleware');
+
 require('dotenv').config();
 
 module.exports = {
@@ -26,12 +28,23 @@ module.exports = {
     quoteIdentifiers: false
   },
   production: {
-    url: process.env.DATABASE_URL,
-    quoteIdentifiers: false,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    port: 25060,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      },
+      ca: '../../ca-certificate.crt'
+    },
+    dialect: 'postgres',
     define: {
       createdAt: 'created_at',
       updatedAt: 'updated_at'
     },
-    dialect: 'postgres'
+    quoteIdentifiers: false
   }
 };
