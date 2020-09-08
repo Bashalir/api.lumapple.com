@@ -23,3 +23,10 @@ docker-compose.yaml
 
 #certificate
 ca-certificate.crt
+
+NODE_ENV=production
+DB_CA=ca-certificate.crt
+DB_PASSWORD=bgp7dxwk7acrtxjv
+DB_NAME=defaultdb
+DB_HOST=db-postgresql-fra1-93447-do-user-7979168-0.a.db.ondigitalocean.com
+DB_USERNAME=doadmin
