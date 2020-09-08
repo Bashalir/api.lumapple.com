@@ -20,3 +20,6 @@ firebase-admin.json
 Dockerfile
 .dockerignore
 docker-compose.yaml
+
+#certificate
+ca-certificate.crt
