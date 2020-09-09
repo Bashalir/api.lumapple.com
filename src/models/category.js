@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
+        defaultValue: DataTypes.INTEGER,
         validate: {
           isUUID: 4,
           notNull: true
@@ -50,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Category.associate = models => {
     Category.hasMany(models.Family, { foreignKey: 'category_id' });
-    Category.hasMany(models.Storage, { foreignKey: 'category_id' });
   };
 
   return Category;

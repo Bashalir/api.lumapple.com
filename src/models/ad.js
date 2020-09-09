@@ -29,8 +29,6 @@ module.exports = (sequelize, DataTypes) => {
     { tableName: 'ads' }
   );
   Ad.associate = models => {
-    Ad.hasMany(models.PhotoAD, { foreignKey: 'ad_id' });
-
     Ad.belongsTo(models.User, {
       onDelete: 'CASCADE',
       foreignKey: {

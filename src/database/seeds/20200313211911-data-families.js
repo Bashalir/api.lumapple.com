@@ -8,6 +8,7 @@ const dateNow = moment()
 const families = [
   {
     id: uuid(),
+    category_id: 3,
     ref: 'ipad_pro',
     type: 'iPad Pro',
     short_description: 'Puce A12Z Bionic',
@@ -29,6 +30,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 3,
     ref: 'ipad_air',
     type: 'iPad Air',
     short_description: 'Puce A12 Bionic',
@@ -52,6 +54,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 3,
     ref: 'ipad',
     type: 'iPad',
     short_description: 'Puce A12 Bionic',
@@ -75,6 +78,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 3,
     ref: 'ipad_mini',
     type: 'iPad Mini',
     short_description: 'Puce A12 Bionic',
@@ -98,6 +102,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 1,
     ref: 'imac21',
     type: 'iMac 21,5"',
     short_description: 'Processeur hexacœur à 3 GHz',
@@ -117,6 +122,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 1,
     ref: 'imac27',
     type: 'iMac 27"',
     short_description: 'Processeur 8 cœurs à 3,8 GHz',
@@ -136,6 +142,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 1,
     ref: 'imac_pro',
     type: 'iMac Pro',
     short_description: 'Processeur Intel Xeon',
@@ -156,6 +163,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 2,
     ref: 'macbook16_pro',
     type: 'MacBook Pro 16"',
     short_description: 'Processeur 8 cœurs à 2,3 GHz',
@@ -177,6 +185,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 2,
     ref: 'macbook13_pro',
     type: 'MacBook Pro 13"',
     short_description: 'Processeur quadricœur à 2 GHz',
@@ -198,6 +207,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 2,
     ref: 'macbook_air',
     type: 'MacBook Air',
     short_description: 'Processeur Core i5 1,1 GHz',
@@ -219,6 +229,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 5,
     ref: 'watch5',
     type: 'Watch Series 5',
     short_description: 'GPS + Cellular',
@@ -244,6 +255,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 5,
     ref: 'watch3',
     type: 'Watch Series 3',
     short_description: 'GPS + Cellular',
@@ -269,6 +281,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 5,
     ref: 'watch_nike',
     type: 'Watch Nike',
     short_description: 'GPS + Cellular',
@@ -294,6 +307,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 4,
     ref: 'iphone11_pro_max',
     type: 'iPhone 11 Pro Max',
     short_description: 'Écran Super Retina XDR 6.5"',
@@ -314,6 +328,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 4,
     ref: 'iphone11_pro',
     type: 'iPhone 11 Pro',
     short_description: 'Écran Super Retina XDR 5.8"',
@@ -334,6 +349,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 4,
     ref: 'iphone11',
     type: 'iPhone 11',
     short_description: 'Écran Super Retina XDR 6.1"',
@@ -354,6 +370,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 4,
     ref: 'iphonexr',
     type: 'iPhone XR',
     short_description: 'Écran Liquid Retina HD 6.1"',
@@ -373,6 +390,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 4,
     ref: 'iphone8_plus',
     type: 'iPhone 8 Plus',
     short_description: 'Écran Retina HD 5.5"',
@@ -392,6 +410,7 @@ const families = [
   },
   {
     id: uuid(),
+    category_id: 4,
     ref: 'iphone8',
     type: 'iPhone 8',
     short_description: 'Écran Retina HD 4.7"',

@@ -12,15 +12,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      category_id: {
-        allowNull: false,
-        type: Sequelize.UUID,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'categories',
-          key: 'id'
-        }
-      },
+
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,

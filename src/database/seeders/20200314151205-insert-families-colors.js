@@ -8,7 +8,7 @@ const { familiesColors } = require('../seeds/20200314154151-data-families-colors
 
 module.exports = {
   up: async queryInterface => {
-    const familiesID = await familiesColors.map(async familyColor => {
+    const familiesID = familiesColors.map(async familyColor => {
       const familyId = await queryInterface.rawSelect(
         'families',
         {
@@ -19,7 +19,7 @@ module.exports = {
         ['id']
       );
 
-      const colorsId = await familyColor.colors.map(async color => {
+      const colorsId = familyColor.colors.map(async color => {
         const colorId = await queryInterface.rawSelect(
           'colors',
           {
@@ -42,7 +42,6 @@ module.exports = {
       return result;
     });
     const result = await Promise.all(familiesID);
-    // await console.log('family', result.flat(1));
     await queryInterface.bulkInsert('families_colors', result.flat(1));
   },
 

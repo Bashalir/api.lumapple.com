@@ -74,11 +74,16 @@ const adsController = {
         limit: 1,
         attributes: ['id', 'price', 'created_at'],
         include: [
-          { model: Family, attributes: ['type', 'ref'], required: true },
-          { model: ScreenState, attributes: ['nameFr', 'ref'], required: true },
-          { model: HullState, attributes: ['nameFr', 'ref'], required: true },
-          { model: Storage, attributes: ['capacity'] },
-          { model: Color, attributes: ['ref', 'nameFr', 'rgb'] },
+          {
+            model: Family,
+            attributes: ['type', 'ref', 'short_description', 'description', 'specs'],
+            required: true
+          },
+          { model: ScreenState, attributes: ['id', 'nameFr', 'ref'], required: true },
+          { model: HullState, attributes: ['id', 'nameFr', 'ref'], required: true },
+          { model: Storage, attributes: ['id', 'capacity'] },
+          { model: Color, attributes: ['id', 'ref', 'nameFr', 'rgb'] },
+          { model: User, attributes: ['displayName', 'mail'] },
           { model: Option }
         ]
       });
@@ -90,7 +95,7 @@ const adsController = {
 
   getAdAll: async ({ page }) => {
     let getOffset = page;
-    const limit = 2;
+    const limit = 10;
     try {
       if (!getOffset || page === 0) {
         getOffset = -1;

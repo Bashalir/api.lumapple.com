@@ -34,7 +34,7 @@ module.exports = {
       },
       category_id: {
         allowNull: false,
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'categories',

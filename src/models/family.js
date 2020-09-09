@@ -102,7 +102,7 @@ module.exports = (sequelize, DataTypes) => {
     Family.belongsTo(models.Category, {
       onDelete: 'CASCADE',
       foreignKey: {
-        name: 'category_id',
+        name: 'categoryId',
         field: 'category_id',
         allowNull: false
       }
