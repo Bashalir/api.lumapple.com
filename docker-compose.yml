@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:10.4
+    ports:
+      - '35432:5432'
+    restart: always
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: tester
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: lumapple
+    command: ['postgres', '-c', 'log_statement=all']
+    networks:
+        lumapple:
+          ipv4_address: 173.23.0.1 
+  api:
+    container_name: api.lumapple
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      DB_USERNAME: tester
+      DB_PASSWORD: test
+      DB_NAME: lumapple
+      DB_HOST: 173.23.0.1:5432
+    ports:
+      - '3030:3030'
+    restart: always
+    command: npm run dev
+    volumes:
+      - .:/usr/src/app
+    networks:
+      lumapple:
+        ipv4_address: 173.23.0.2 
+networks:
+  lumapple:
+    ipam:
+      driver: default
+      config:
+        - subnet: "173.23.0.1/10"
+
+
+

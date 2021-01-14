@@ -1,7 +1,7 @@
 require('dotenv').config();
 const admin = require('firebase-admin');
 // eslint-disable-next-line node/no-unpublished-require
-const serviceAccount = require('../../firebase-admin.json');
+const serviceAccount = require('../../firebase_admin.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
