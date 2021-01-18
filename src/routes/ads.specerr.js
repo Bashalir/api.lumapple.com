@@ -3,6 +3,8 @@
 // const { expect } = require('chai');
 
 // eslint-disable-next-line node/no-unpublished-require
+
+
 const request = require('supertest');
 const uuid = require('uuid/v4');
 
@@ -19,10 +21,10 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('Routes :: ads.js', () => {
-  beforeEach(function() {
+  beforeEach(function () {
     server = require('../server');
     sinon.stub(auth, 'decodeFirebaseIdToken').callsFake((req, res, callback) => {
-      return (req, res, next) => {};
+      return (req, res, next) => { };
     });
   });
 

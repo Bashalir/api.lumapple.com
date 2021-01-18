@@ -9,9 +9,6 @@ router.post('/', async (request, response) => {
   // eslint-disable-next-line camelcase
 
   try {
-    console.log('body');
-    console.log(request.body.photoAd);
-
     const newPhoto = await photoAdController.postPhoto(request.body);
 
     await response.status(201).json({ status: 'created', newPhoto });

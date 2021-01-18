@@ -19,7 +19,6 @@ const adsPhotosController = {
       const newPhoto = await PhotoAD.create(photoData);
       return newPhoto;
     } catch (e) {
-      console.log(e);
       throw new Error(e);
     }
   },

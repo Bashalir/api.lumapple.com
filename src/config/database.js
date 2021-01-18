@@ -1,14 +1,12 @@
-const firebaseAuthMiddleware = require('../middlewares/firebase_auth_middleware');
-
 require('dotenv').config();
 
 module.exports = {
   development: {
-    username: "tester",
-    password: "test",
-    database: "lumapple",
-    host: "173.23.0.1",
-    port: "5432",
+    username: 'tester',
+    password: 'test',
+    database: 'lumapple',
+    host: '173.23.0.1',
+    port: '5432',
     dialect: 'postgres',
     define: {
       createdAt: 'created_at',

@@ -8,6 +8,7 @@ const adsController = {
     const wordsOfText = text ? text.split(' ') : [''];
     const wordsFind = wordsOfText.map(word => `%${word}%`);
 
+
     try {
       const ads = await Ad.findAndCountAll({
         attributes: ['id', 'price', 'created_at'],

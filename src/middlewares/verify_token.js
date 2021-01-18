@@ -6,16 +6,13 @@ async function verifyToken(req, res, next) {
   try {
     const decodedToken = await admin.auth().verifyIdToken(idToken);
     if (decodedToken) {
-      console.debug('decodedToken', decodedToken.uid);
       req.body = {};
-      console.debug('req.body', req.body);
       req.body.uid = decodedToken.uid;
 
       return next();
     }
     return res.status(401).send('Not authorized');
   } catch (e) {
-    console.log('error', e);
     return res.status(401).send('Not authorized');
   }
 }

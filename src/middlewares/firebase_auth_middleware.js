@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable promise/no-callback-in-promise */
 // Import Firebase Admin initialized instance to middleware
 const admin = require('../config/firebase.js');
 
 const firebaseAuthMiddleware = {
+  // eslint-disable-next-line consistent-return
   decodeFirebaseIdToken: (req, res, next) => {
     const idToken = req.headers.authorization;
 
@@ -17,15 +20,14 @@ const firebaseAuthMiddleware = {
     admin
       .auth()
       .verifyIdToken(idToken)
-      .then(function(decodedToken) {
+      .then(decodedToken => {
         if (decodedToken) {
           req.body.data.firebaseId = decodedToken.user_id;
           return next();
         }
         return next();
       })
-      .catch(function(error) {
-        console.log(error);
+      .catch(_error => {
         return res.status(401).json({ err: "Vous n'etes pas autorisé." });
       });
   },

@@ -7,7 +7,6 @@ const { decodeFirebaseIdToken } = require('../middlewares/firebase_auth_middlewa
 // router.use('*', verifyToken);
 router.post('/', decodeFirebaseIdToken, async (request, response) => {
   // eslint-disable-next-line camelcase
-  console.log(request.body);
   try {
     const newAd = await adsController.postAd(request.body);
 

@@ -1,4 +1,3 @@
-const uuid = require('uuid/v4');
 const moment = require('moment');
 
 const dateNow = moment()
