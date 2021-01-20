@@ -1,8 +1,3 @@
-/* eslint-disable */
-// eslint-disable-next-line node/no-unpublished-require
-// const { expect } = require('chai');
-
-// eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
 const uuid = require('uuid/v4');
 const app = require('../server');

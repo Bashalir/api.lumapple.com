@@ -8,7 +8,7 @@ const colorsController = require('./colors_controller');
 const { Color } = require('../models');
 
 describe('Controllers :: colorsController', () => {
-  describe('#allColors', async () => {
+  describe('#allColors', () => {
     it('should return the list of all colors for the family iphone 11', async () => {
       // Given
       const family = { ref: 'iphone11' };
@@ -32,19 +32,6 @@ describe('Controllers :: colorsController', () => {
       expect(createStub.calledOnce).to.be.true;
       expect(createdObject).to.deep.equal(expectedObject);
       createStub.restore();
-    });
-
-    it('should return an array with all iphone11 family color', async () => {
-      const family = { ref: 'iphone11' };
-
-      // When
-      const colorListRaw = await colorsController.filter(family);
-
-      const colorList = colorListRaw.map(colorRaw => colorRaw.dataValues);
-      // Then
-
-      expect(colorList).to.be.an('array');
-      expect(colorList[0]).to.be.an('object');
     });
   });
 });

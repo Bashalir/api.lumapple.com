@@ -17,6 +17,9 @@
     "migrate": "sequelize db:migrate",
     "migrate:reset": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
   },
+  "jest": {
+    "verbose": true
+  },
   "husky": {
     "hooks": {
       "pre-push": "npm run lint"

@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable node/no-unpublished-require */
-const { expect } = require('chai');
-const sinon = require('sinon');
 const uuid = require('uuid/v4');
+const expect = require('expect');
 
 const familiesController = require('./families_controller');
 
 const { Family } = require('../models');
 
 describe('Controllers :: familiesController', () => {
-  describe('#allFamilies', async () => {
+  describe('#allFamilies', () => {
     it('should return the right object', async () => {
       // Given
       const category = { ref: 'iphone' };
@@ -30,27 +29,15 @@ describe('Controllers :: familiesController', () => {
 
       const createReturnObject = [...expectedObject];
 
-      const createStub = sinon.stub(Family, 'findAll').returns(createReturnObject);
+      // eslint-disable-next-line no-undef
+      const createStub = jest.spyOn(Family, 'findAll').mockImplementation(() => createReturnObject);
 
       // When
       const createdObject = await familiesController.filter(category);
 
       // Then
-      expect(createStub.calledOnce).to.be.true;
-      expect(createdObject).to.deep.equal(expectedObject);
-      createStub.restore();
-    });
-
-    it('should return an array with object', async () => {
-      const category = { ref: 'iphone' };
-
-      // When
-      const familyList = await familiesController.filter(category);
-
-      // console.log(familyList);
-      // Then
-      expect(familyList).to.be.an('array');
-      expect(familyList[0]).to.be.an('object');
+      expect(createStub).toHaveBeenCalled();
+      expect(createdObject).toEqual(expectedObject);
     });
   });
 });

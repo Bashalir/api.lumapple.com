@@ -1,8 +1,6 @@
 /* eslint-disable */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable node/no-unpublished-require */
-const { expect } = require('chai');
-const sinon = require('sinon');
 const uuid = require('uuid/v4');
 
 const adsController = require('./ads_controller');
@@ -27,7 +25,11 @@ describe('Controllers :: adsController', () => {
         storage_id: storageId,
         hull_state_id: hullStateId,
         screen_state_id: screenStateId,
-        price: 299
+        price: 299,
+        data: {
+          firebaseId
+        }
+
       };
 
       const createReturnObject = {
@@ -40,16 +42,15 @@ describe('Controllers :: adsController', () => {
         ad_id: adId
       };
 
-      const createStubUser = sinon.stub(User, 'findAll').returns(['456646', 'bash@bash.Fr']);
-      const createStub = sinon.stub(Ad, 'create').returns(createReturnObject);
+      const createStubUser = jest.spyOn(User, 'findAll').mockImplementation(() => ['456646', 'bash@bash.Fr']);
+      const createStub = jest.spyOn(Ad, 'create').mockImplementation(() => createReturnObject);
 
       // When
       const createdObject = await adsController.postAd(adData);
 
       // Then
-      expect(createStub.calledOnce).to.be.true;
-      expect(createdObject.status).to.deep.equal(expectedObject.status);
-      createStub.restore();
+      expect(createStub).toHaveBeenCalled();
+      expect(createdObject.status).toEqual(expectedObject.status);
     });
   });
 });

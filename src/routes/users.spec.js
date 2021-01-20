@@ -1,12 +1,7 @@
-/* eslint-disable */
-// eslint-disable-next-line node/no-unpublished-require
-// const { expect } = require('chai');
-
-// eslint-disable-next-line node/no-unpublished-require
 const request = require('supertest');
 const uuid = require('uuid/v4');
+const faker = require('faker');
 const app = require('../server');
-var faker = require('faker');
 
 describe('Routes :: users.js', () => {
   it('should return status created ', done => {
@@ -23,7 +18,7 @@ describe('Routes :: users.js', () => {
       displayName: display_name,
       firstName: first_name,
       lastName: last_name,
-      mail: mail
+      mail
     };
 
     request(app)
